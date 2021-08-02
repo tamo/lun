@@ -39,8 +39,8 @@
 				qa.sort(function(a, b){
 					return Math.random() - 0.5;
 				})
-				next.style.display = "block";
 				const next = document.getElementById("next");
+				next.style.display = "block";
 				next.addEventListener("click", function(e){
 					q_array = qa.pop();
 					const q = document.getElementById("q");
