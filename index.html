@@ -31,21 +31,24 @@
 						+ q_array[1]
 						+ "</p>"
 						+ "<button id='a_pron'>🔊</button>";
+					let a_pron_func = function(e){
+						let u = new SpeechSynthesisUtterance();
+						u.lang = "en-US";
+						u.text = q_array[0];
+						speechSynthesis.speak(u);
+					}
+					let a_pron = document.getElementById("a_pron");
+					a_pron.addEventListener("click", a_pron_func);
 					let q_txt = document.getElementById("q_txt");
 					q_txt.addEventListener("click", function(e){
 						q.innerHTML += "<p id='a_txt'>"
 							+ q_array[0]
 							+ "</p>";
-					})
-					let a_pron = document.getElementById("a_pron");
-					a_pron.addEventListener("click", function(e){
-						let u = new SpeechSynthesisUtterance();
-						u.lang = "en-US";
-						u.text = q_array[0];
-						speechSynthesis.speak(u);
-					})
-				})
-			}
+						let a_pron = document.getElementById("a_pron");
+						a_pron.addEventListener("click", a_pron_func);
+					});
+				});
+			};
 		</script>
 	</body>
 </html>
