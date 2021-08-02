@@ -5,14 +5,25 @@
 		<style>
 			p {font-size: 130%;}
 			button {font-size: 200%; display: block;}
+			#next {display: none;}
 		</style>
 	</head>
 	<body>
-		<p id="q"></p>
+		<p>
+			<span onclick="start('./taihei-2-summer-2021.txt')">太2</span>
+			<span onclick="">太3</span>
+			<span onclick="">西3並</span>
+			<span onclick="">教p146</span>
+		</p>
+		<p id="q">範囲を選んでください。<br />
+			その後、問題文をタップで答えを表示できます。<br />
+			🔊でヒントとして音声を出せます。<br />
+			⏭で次の問題に進みます。</p>
 		<button id="next">⏭️</button>
 		<script>
+		function start(fname){
 			const datafile = new XMLHttpRequest();
-			datafile.open("GET", "./taihei-2-summer-2021.txt", true);
+			datafile.open("GET", fname, true);
 			datafile.send(null);
 			datafile.onload = function(){
 				const lines = datafile.responseText.split("\n");
@@ -28,6 +39,7 @@
 				qa.sort(function(a, b){
 					return Math.random() - 0.5;
 				})
+				next.style.display = "block";
 				const next = document.getElementById("next");
 				next.addEventListener("click", function(e){
 					q_array = qa.pop();
@@ -53,7 +65,9 @@
 						a_pron.addEventListener("click", a_pron_func);
 					});
 				});
+				next.click();
 			};
+		}
 		</script>
 	</body>
 </html>
