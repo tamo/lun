@@ -3,6 +3,46 @@
 		<title>lun - fun learning tool for students</title>
 	</head>
 	<body>
-		<p>nothing here yet</p>
+		<p id="q">nothing here yet</p>
+		<script>
+			const datafile = new XMLHttpRequest();
+			datafile.open("GET", "./taihei-2-summer-2021.txt", true);
+			datafile.send(null);
+			datafile.onload = function(){
+				const lines = datafile.responseText.split("\n");
+				let qa = [];
+				lines.forEach(function(line){
+					let n_items = qa.push(line.split("|"));
+					if (n_items != 2){
+						var err_item = qa.pop();
+						console.log("[not a qa] " + err_item);
+					}
+				})
+				qa.sort(function(a, b){
+					return Math.random() - 0.5;
+				})
+				const q = document.getElementById("q");
+				q.addEventListener("click", function(e){
+					q_array = qa.pop();
+					q.innerHTML = "<p id='q_txt'>"
+						+ q_array[1]
+						+ "</p>"
+						+ "<button id='a_pron'>🔊</button>";
+					let q_txt = document.getElementById("q_txt");
+					q_txt.addEventListener("click", function(e){
+						q.innerHTML += "<p id='a_txt'>"
+							+ q_array[0]
+							+ "</p>";
+					})
+					let a_pron = document.getElementById("a_pron");
+					a_pron.addEventListener("click", function(e){
+						let u = new SpeechSynthesisUtterance();
+						u.lang = "en-US";
+						u.text = q_array[0];
+						speechSynthesis.speak(u);
+					})
+				})
+			}
+		</script>
 	</body>
 </html>
