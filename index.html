@@ -5,15 +5,16 @@
 		<style>
 			p {font-size: 130%;}
 			button {font-size: 200%; display: block;}
+			span {border-style: outset;}
 			#next {display: none;}
 		</style>
 	</head>
 	<body>
 		<p>
-			<span onclick="start('./taihei-2-summer-2021.txt')">太2</span>
-			<span onclick="">太3</span>
-			<span onclick="">西3並</span>
-			<span onclick="">教p146</span>
+			<span onclick="this.style.borderStyle='inset';start('./taihei-2-summer-2021.txt')">太2</span>
+			<span onclick="this.style.borderStyle='inset';">太3</span>
+			<span onclick="this.style.borderStyle='inset';">西3並</span>
+			<span onclick="this.style.borderStyle='inset';">教p146</span>
 		</p>
 		<p id="q">範囲を選んでください。<br />
 			その後、問題文をタップで答えを表示できます。<br />
