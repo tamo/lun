@@ -12,10 +12,11 @@
 				const lines = datafile.responseText.split("\n");
 				let qa = [];
 				lines.forEach(function(line){
-					let n_items = qa.push(line.split("|"));
-					if (n_items != 2){
-						var err_item = qa.pop();
-						console.log("[not a qa] " + err_item);
+					let pair = line.split("|");
+					if (pair.length == 2){
+						qa.push(pair);
+					} else {
+						console.log("[not a qa] " + pair);
 					}
 				})
 				qa.sort(function(a, b){
