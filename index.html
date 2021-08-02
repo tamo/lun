@@ -32,9 +32,9 @@
 				next.addEventListener("click", function(e){
 					q_array = qa.pop();
 					const q = document.getElementById("q");
-					q.innerHTML = "<p id='q_txt'>"
+					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
-						+ "</p>"
+						+ "</button>"
 						+ "<button id='a_pron'>🔊</button>";
 					let a_pron_func = function(e){
 						let u = new SpeechSynthesisUtterance();
