@@ -6,8 +6,8 @@
 			p {font-size: 130%;}
 			button {font-size: 200%;}
 			#q_txt, #next {display: block; width: 100%;}
-			#a_pron {width: 50%;}
-			progress {width: 30%;}
+			#a_pron {width: 45%;}
+			progress {width: 45%;}
 			span {border-style: outset;}
 			#next {display: none;}
 		</style>
@@ -54,9 +54,13 @@
 				const next = document.getElementById("next");
 				next.style.display = "block";
 				next.addEventListener("click", function(e){
+					const q = document.getElementById("q");
+					if (qa.length < 1){
+						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>";
+						return;
+					}
 					let q_array = qa.pop();
 					let pos = totalnum - qa.length;
-					const q = document.getElementById("q");
 					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
 						+ "</button>"
