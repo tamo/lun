@@ -11,10 +11,10 @@
 	</head>
 	<body>
 		<p>
-			<span onclick="this.style.borderStyle='inset';start('./taihei-2-summer-2021.txt');">太2</span>
-			<span onclick="this.style.borderStyle='inset';start('./taihei-3-summer-2021.txt');">太3</span>
-			<span onclick="this.style.borderStyle='inset';start('./nishi-3-u1-u2.txt');">西3並</span>
-			<span onclick="alert('まだ作っていません。すみません。');">教p146</span>
+			<span class="tab" onclick="settab(this);start('./taihei-2-summer-2021.txt');">太2</span>
+			<span class="tab" onclick="settab(this);start('./taihei-3-summer-2021.txt');">太3</span>
+			<span class="tab" onclick="settab(this);start('./nishi-3-u1-u2.txt');">西3並</span>
+			<span class="tab" onclick="settab(this);start('./3-pp-146-147.txt');">教p146</span>
 		</p>
 		<p id="q">範囲を選んでください。<br />
 			その後、問題文をタップで答えを表示できます。<br />
@@ -22,6 +22,13 @@
 			⏭で次の問題に進みます。</p>
 		<button id="next">⏭️</button>
 		<script>
+		function settab(tobeset){
+			const tabs = document.getElementsByClassName("tab");
+			tabs.forEach(function(tab){
+				tab.style.borderStyle="outset";
+			});
+			tobeset.style.borderStyle='inset';
+		}
 		function start(fname){
 			const datafile = new XMLHttpRequest();
 			datafile.open("GET", fname, true);
@@ -43,16 +50,19 @@
 				const next = document.getElementById("next");
 				next.style.display = "block";
 				next.addEventListener("click", function(e){
-					q_array = qa.pop();
+					let q_array = qa.pop();
 					const q = document.getElementById("q");
 					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
 						+ "</button>"
 						+ "<button id='a_pron'>🔊</button>";
+					let a_pron_rate = 1.0;
 					let a_pron_func = function(e){
 						let u = new SpeechSynthesisUtterance();
 						u.lang = "en-US";
 						u.text = q_array[0];
+						u.rate = a_pron_rate;
+						a_pron_rate *= 0.8;
 						speechSynthesis.speak(u);
 					}
 					let a_pron = document.getElementById("a_pron");
