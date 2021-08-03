@@ -55,14 +55,15 @@
 				next.style.display = "block";
 				next.addEventListener("click", function(e){
 					let q_array = qa.pop();
+					let pos = totalnum - qa.length;
 					const q = document.getElementById("q");
 					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
 						+ "</button>"
 						+ "<button id='a_pron'>🔊</button>"
 						+ "<progress max=" + totalnum
-						+ " value=" + totalnum - qa.length
-						+ " >" + totalnum - qa.length + "/" + totalnum
+						+ " value=" + pos
+						+ " >" + pos + "/" + totalnum
 						+ "</progress>";
 					let a_pron_rate = 1.0;
 					let a_pron_func = function(e){
