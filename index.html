@@ -4,14 +4,29 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<style>
 			p {font-size: 130%;}
+			.tab {border-style: outset;}
 			button {font-size: 200%;}
-			#q_txt, #next {display: block; width: 100%;}
+			#q_txt {display: block; width: 100%;}
 			#a_pron {width: 45%;}
 			progress {width: 45%;}
 			#progressbar {position: relative;}
 			#pos {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
-			.tab {border-style: outset;}
-			#next {display: none;}
+			#next {display: none; width: 100%;}
+			.pulse {animation: pulse 2s infinite;}
+			@keyframes pulse {
+				0% {
+					transform: scale(0.95);
+					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+				}
+				70%	{
+					transform: scale(1);
+					box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+				}
+				100%	{
+					transform: scale(0.95);
+					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -21,10 +36,12 @@
 			<span class="tab" onclick="settab(this);start('./nishi-3-u1-u2.txt');">西3並</span>
 			<span class="tab" onclick="settab(this);start('./3-pp-146-147.txt');">教p146</span>
 		</p>
-		<p id="q">範囲を選んでください。<br />
+		<p id="q">
+			範囲を選んでください。<br />
 			その後、問題文をタップで答えを表示できます。<br />
 			🔊でヒントとして音声を出せます。<br />
-			⏭で次の問題に進みます。</p>
+			⏭で次の問題に進みます。
+		</p>
 		<button id="next">⏭️</button>
 		<script>
 		function settab(tobeset){
@@ -46,7 +63,8 @@
 					if (pair.length == 2){
 						qa.push(pair);
 					} else {
-						console.log("[not a qa] " + pair);
+						if(line.length > 0)
+							console.log("[not a qa] " + line);
 					}
 				})
 				let totalnum = qa.length;
@@ -56,9 +74,11 @@
 				const next = document.getElementById("next");
 				next.style.display = "block";
 				next.addEventListener("click", function(e){
+					next.classList.remove("pulse");
 					const q = document.getElementById("q");
 					if (qa.length < 1){
 						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>";
+						next.style.display = "none";
 						return;
 					}
 					let q_array = qa.pop();
@@ -77,19 +97,22 @@
 						u.lang = "en-US";
 						u.text = q_array[0];
 						u.rate = a_pron_rate;
-						a_pron_rate *= 0.6;
 						speechSynthesis.speak(u);
+						a_pron_rate *= 0.6;
 					}
 					let a_pron = document.getElementById("a_pron");
 					a_pron.addEventListener("click", a_pron_func);
 					let q_txt = document.getElementById("q_txt");
 					q_txt.addEventListener("click", function(e){
+						q_txt.classList.remove("pulse");
 						q.innerHTML += "<p id='a_txt'>"
 							+ q_array[0]
 							+ "</p>";
 						let a_pron = document.getElementById("a_pron");
 						a_pron.addEventListener("click", a_pron_func);
+						next.classList.add("pulse");
 					});
+					q_txt.classList.add("pulse");
 				});
 				next.click();
 			};
