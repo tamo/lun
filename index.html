@@ -4,7 +4,10 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<style>
 			p {font-size: 130%;}
-			button {font-size: 200%; display: block;}
+			button {font-size: 200%;}
+			#q_txt, #next {display: block; width: 100%;}
+			#a_pron {width: 50%;}
+			progress {width: 30%;}
 			span {border-style: outset;}
 			#next {display: none;}
 		</style>
@@ -44,6 +47,7 @@
 						console.log("[not a qa] " + pair);
 					}
 				})
+				let totalnum = qa.length;
 				qa.sort(function(a, b){
 					return Math.random() - 0.5;
 				})
@@ -55,7 +59,11 @@
 					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
 						+ "</button>"
-						+ "<button id='a_pron'>🔊</button>";
+						+ "<button id='a_pron'>🔊</button>"
+						+ "<progress max=" + totalnum
+						+ " value=" + totalnum - qa.length
+						+ " >" + totalnum - qa.length + "/" + totalnum
+						+ "</progress>";
 					let a_pron_rate = 1.0;
 					let a_pron_func = function(e){
 						let u = new SpeechSynthesisUtterance();
