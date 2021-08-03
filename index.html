@@ -23,7 +23,7 @@
 		<button id="next">⏭️</button>
 		<script>
 		function settab(tobeset){
-			const tabs = document.getElementsByClassName("tab");
+			const tabs = Array.from(document.getElementsByClassName("tab"));
 			tabs.forEach(function(tab){
 				tab.style.borderStyle="outset";
 			});
