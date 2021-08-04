@@ -11,6 +11,8 @@
 			progress {width: 45%;}
 			#progressbar {position: relative;}
 			#pos {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+			#a_txt {transition: all 0.5s ease 0;}
+			.collapse {visibility: collapse;}
 			#next {display: none; width: 100%;}
 			.pulse {animation: pulse 2s infinite;}
 			@keyframes pulse {
@@ -90,7 +92,10 @@
 						+ "<span id='progressbar'>"
 						+ " <progress max=" + totalnum + " value=" + pos + "></progress>"
 						+ " <span id='pos'>" + pos + "/" + totalnum + "</span>"
-						+ "</span>";
+						+ "</span>"
+						+ "<p id='a_txt' class='collapse'>"
+						+ q_array[0]
+						+ "</p>";
 					let a_pron_rate = 1.0;
 					let a_pron_func = function(e){
 						let u = new SpeechSynthesisUtterance();
@@ -105,11 +110,10 @@
 					let q_txt = document.getElementById("q_txt");
 					q_txt.addEventListener("click", function(e){
 						q_txt.classList.remove("pulse");
-						q.innerHTML += "<p id='a_txt'>"
-							+ q_array[0]
-							+ "</p>";
-						let a_pron = document.getElementById("a_pron");
-						a_pron.addEventListener("click", a_pron_func);
+						let a_txt = document.getElementById("a_txt");
+						a_txt.classList.toggle("collapse");
+						// let a_pron = document.getElementById("a_pron");
+						// a_pron.addEventListener("click", a_pron_func);
 						next.classList.add("pulse");
 					});
 					q_txt.classList.add("pulse");
