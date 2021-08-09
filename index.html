@@ -13,7 +13,7 @@
 			#pos {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
 			#a_txt {opacity: 1; transition: all 1s ease-in-out 0s;}
 			.collapse {opacity: 0 !important;}
-			#next {display: none; width: 100%;}
+			#next {width: 100%;}
 			strong {font-size:140%;}
 			.pulse {animation: pulse 2s infinite;}
 			@keyframes pulse {
@@ -46,7 +46,7 @@
 			🔊でヒントとして音声を出せます。<br />
 			⏭で次の問題に進みます。
 		</p>
-		<button id="next">⏭️</button>
+		<button id="next" class="collapse">⏭️</button>
 		<script>
 		function settab(tobeset){
 			const tabs = Array.from(document.getElementsByClassName("tab"));
@@ -77,14 +77,14 @@
 					return Math.random() - 0.5;
 				})
 				let next = document.getElementById("next");
-				next.style.display = "block";
+				next.classList.remove("collapse");
 				next.addEventListener("click", function(e){
 					next.classList.remove("pulse");
 					let q = document.getElementById("q");
 					if (qa.length < 1){
 						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>"
-							+ used.join("<br />");
-						next.style.display = "none";
+							+ "<div>" + used.join("<br />") + "</div>";
+						next.classList.add("collapse");
 						return;
 					}
 					let q_array = qa.pop();
