@@ -61,6 +61,7 @@
 			datafile.onload = function(){
 				const lines = datafile.responseText.split("\n");
 				let qa = [];
+				let used = [];
 				lines.forEach(function(line){
 					let pair = line.split("|");
 					if (pair.length == 2){
@@ -80,11 +81,13 @@
 					next.classList.remove("pulse");
 					const q = document.getElementById("q");
 					if (qa.length < 1){
-						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>";
+						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>"
+							+ used.join("<br />");
 						next.style.display = "none";
 						return;
 					}
 					let q_array = qa.pop();
+					used.push(" " + q_array[1] + " = " + q_array[0]);
 					let pos = totalnum - qa.length;
 					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
@@ -98,24 +101,25 @@
 						+ q_array[0]
 						+ "</p>";
 					let a_pron_rate = 1.0;
-					let a_pron_func = function(e){
+					let a_pron = document.getElementById("a_pron");
+					a_pron.addEventListener("click",function(e){
 						let u = new SpeechSynthesisUtterance();
 						u.lang = "en-US";
 						u.text = q_array[0];
 						u.rate = a_pron_rate;
 						speechSynthesis.speak(u);
 						a_pron_rate *= 0.6;
-					}
-					let a_pron = document.getElementById("a_pron");
-					a_pron.addEventListener("click", a_pron_func);
+						let last_used = used.pop();
+						used.push("." + last_used);
+					});
 					let q_txt = document.getElementById("q_txt");
 					q_txt.addEventListener("click", function(e){
 						q_txt.classList.remove("pulse");
 						let a_txt = document.getElementById("a_txt");
 						a_txt.classList.toggle("collapse");
-						// let a_pron = document.getElementById("a_pron");
-						// a_pron.addEventListener("click", a_pron_func);
 						next.classList.add("pulse");
+						let last_used = used.pop();
+						used.push("*" + last_used);
 					});
 					q_txt.classList.add("pulse");
 				});
