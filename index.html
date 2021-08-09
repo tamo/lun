@@ -56,7 +56,7 @@
 			tobeset.style.borderStyle='inset';
 		}
 		function start(fname){
-			const datafile = new XMLHttpRequest();
+			let datafile = new XMLHttpRequest();
 			datafile.open("GET", fname, true);
 			datafile.send(null);
 			datafile.onload = function(){
@@ -78,13 +78,14 @@
 				})
 				let next = document.getElementById("next");
 				next.classList.remove("collapse");
-				next.addEventListener("click", function(e){
+				let nextListener = function(e){
 					next.classList.remove("pulse");
 					let q = document.getElementById("q");
 					if (qa.length < 1){
 						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>"
 							+ "<div>" + used.join("<br />") + "</div>";
-						next.classList.add("collapse");
+						next.removeEventListener("click", nextListener);
+						// next.classList.add("collapse");
 						return;
 					}
 					let q_array = qa.pop();
@@ -123,7 +124,8 @@
 						used.push("<strong>" + last_used + "</strong>");
 					});
 					q_txt.classList.add("pulse");
-				});
+				};
+				next.addEventListener("click", nextListener);
 				next.click();
 			};
 		}
