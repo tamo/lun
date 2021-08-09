@@ -14,6 +14,7 @@
 			#a_txt {opacity: 1; transition: all 1s ease-in-out 0s;}
 			.collapse {opacity: 0 !important;}
 			#next {display: none; width: 100%;}
+			strong {font-size:140%;}
 			.pulse {animation: pulse 2s infinite;}
 			@keyframes pulse {
 				0% {
@@ -87,7 +88,7 @@
 						return;
 					}
 					let q_array = qa.pop();
-					used.push("&emsp;" + q_array[1] + " = " + q_array[0]);
+					used.push(q_array[1] + " = " + q_array[0]);
 					let pos = totalnum - qa.length;
 					q.innerHTML = "<button id='q_txt'>"
 						+ q_array[1]
@@ -110,7 +111,7 @@
 						speechSynthesis.speak(u);
 						a_pron_rate *= 0.6;
 						let last_used = used.pop();
-						used.push("." + last_used);
+						used.push("🔊" + last_used);
 					});
 					let q_txt = document.getElementById("q_txt");
 					q_txt.addEventListener("click", function(e){
@@ -119,7 +120,7 @@
 						a_txt.classList.toggle("collapse");
 						next.classList.add("pulse");
 						let last_used = used.pop();
-						used.push("*" + last_used);
+						used.push("<strong>" + last_used + "</strong>");
 					});
 					q_txt.classList.add("pulse");
 				});
