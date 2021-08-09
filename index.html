@@ -60,7 +60,7 @@
 			datafile.open("GET", fname, true);
 			datafile.send(null);
 			datafile.onload = function(){
-				const lines = datafile.responseText.split("\n");
+				let lines = datafile.responseText.split("\n");
 				let qa = [];
 				let used = [];
 				lines.forEach(function(line){
@@ -76,11 +76,11 @@
 				qa.sort(function(a, b){
 					return Math.random() - 0.5;
 				})
-				const next = document.getElementById("next");
+				let next = document.getElementById("next");
 				next.style.display = "block";
 				next.addEventListener("click", function(e){
 					next.classList.remove("pulse");
-					const q = document.getElementById("q");
+					let q = document.getElementById("q");
 					if (qa.length < 1){
 						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>"
 							+ used.join("<br />");
