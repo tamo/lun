@@ -86,6 +86,11 @@
 							+ "<div>" + used.join("<br />") + "</div>";
 						next.removeEventListener("click", nextListener);
 						// next.classList.add("collapse");
+						let retryListener =  function(e){
+							next.removeEventListener("click", retryListener);
+							start(fname);
+						};
+						next.addEventListener("click", retryListener);
 						return;
 					}
 					let q_array = qa.pop();
