@@ -17,7 +17,7 @@ necessary|必要な
 everything (単数扱いなので注意。ひとつひとつを表す)|何でも、全てのもの
 reason|理由、根拠
 between (複数のものに挟まれた位置関係のこと)|…の間で
-through (…を通して)|<s>…のために、…によって</s> (「…を通して」の間違いでは？ thanks to と間違った？)
+through (元の意味は「…を通して」)|…のために、…によって
 bridge|橋
 phone|電話
 paper (数えられないので、枚数は a sheet of paper などで表現)|紙、用紙
