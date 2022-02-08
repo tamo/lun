@@ -8,7 +8,7 @@ You don't have to bring your instrument.|あなたは自分の楽器を持って
 Why don't we go shopping this afternoon?|今日の午後、(一緒に)買い物に行きましょうよ。(Whyで始める)
 
 どうしたの？ 顔色が悪い(蒼白だ)よ。|What's the matter with you? You look pale.
-What's the matter with you?|(あなた)どうしましたか。
+What's the matter (with you)? / Is there something wrong (with you)? / What's wrong (with you)?|(あなた)どうしましたか。
 きみは熱があるに違いない。|You must have a fever.
 You must have a fever.|きみは熱があるに違いない。
 Anyone can make mistakes.|だれだって間違えることがある。
@@ -48,4 +48,8 @@ Where was my bicycle found?|ぼくの自転車はどこで見付かったの。
 The data has been updated.|データは更新済みです。(もう更新されています)
 The guitar is covered with dust.|ギターが埃(ほこり)をかぶっている。(埃で覆われている)
 
+Who was chosen as captain of the team?|だれがチームのキャプテンに選ばれましたか。
+When and where was gunpowder invented?|火薬はいつ、どこで発明されましたか。
+My brother was employed by a car company.|兄は自動車会社に採用されました。
+My father was disappointed at his bonus.|父はボーナスにがっかりしていた。
 
