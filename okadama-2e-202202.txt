@@ -27,7 +27,7 @@ She may not believe my story.|彼女は私の話を信じていないかもし�
 Someone should have called the police. (ought to have called も可)|だれかが警察に電話をしたはずだ。
 
 She must have passed the test.|彼女は試験に受かったに違いない。
-Charlotte can't know my phone number.|シャーロット(Charlotte)は私の電話番号を知らないはずだ。
+Charlotte shouldn't know my phone number.|シャーロット(Charlotte)は私の電話番号を知らないはずだ。
 I may have dropped my key somewhere.|ぼく鍵をどこかに落としたかも。
 My son must have broken that window.|うちの息子があの窓を割ったに違いない。
 You should have seen her at the party.|あなたはパーティーで彼女を見たはずだ。
