@@ -49,6 +49,10 @@
 		<button id="next" class="collapse">⏭️</button>
 		<button id="stop" class="collapse">⏹️</button>
 		<script>
+		let datafile = null;
+		let qa = [];
+		let used = [];
+		let totalnum = 0;
 		function settab(tobeset){
 			const tabs = Array.from(document.getElementsByClassName("tab"));
 			tabs.forEach(function(tab){
@@ -57,14 +61,14 @@
 			tobeset.style.borderStyle='inset';
 		}
 		function start(fname){
-			let datafile = new XMLHttpRequest();
+			datafile = new XMLHttpRequest();
 			datafile.open("GET", fname, true);
 			datafile.onload = function(){
 				if (datafile.readyState != 4){ return; }
 				if (datafile.status != 200){ return; }
 				let lines = datafile.responseText.split("\n");
-				let qa = [];
-				let used = [];
+				qa = [];
+				used = [];
 				lines.forEach(function(line){
 					let pair = line.split("|");
 					if (pair.length == 2){
@@ -74,7 +78,7 @@
 							console.log("[not a qa] " + line);
 					}
 				})
-				let totalnum = qa.length;
+				totalnum = qa.length;
 				qa.sort(function(a, b){
 					return Math.random() - 0.5;
 				})
