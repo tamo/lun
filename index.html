@@ -43,9 +43,10 @@
 			範囲を選んでください。<br />
 			その後、問題文をタップで答えを表示できます。<br />
 			🔊でヒントとして音声を出せます。<br />
-			⏭で次の問題に進みます。
+			⏭で次の問題に進みます。(途中で終わるなら⏹️)
 		</p>
 		<button id="next" class="collapse">⏭️</button>
+		<button id="stop" class="collapse">⏹️</button>
 		<script>
 		function settab(tobeset){
 			const tabs = Array.from(document.getElementsByClassName("tab"));
@@ -83,8 +84,9 @@
 					if (qa.length < 1){
 						q.innerHTML = "<p>🎉 " + used.length + "/" + totalnum + "</p>"
 							+ "<div>" + used.join("<br />") + "</div>";
+						stop.removeEventListener("click", stopListener);
+						stop.classList.add("collapse");
 						next.removeEventListener("click", nextListener);
-						// next.classList.add("collapse");
 						let retryListener =  function(e){
 							next.removeEventListener("click", retryListener);
 							start(fname);
@@ -130,6 +132,15 @@
 					q_txt.classList.add("pulse");
 				};
 				next.addEventListener("click", nextListener);
+
+				let stop = document.getElementById("stop");
+				stop.classList.remove("collapse");
+				let stopListener = function(e){
+					qa.length = 0;
+					nextListener();
+				};
+				stop.addEventListener("click", stopListener);
+
 				next.click();
 			};
 		}
