@@ -1,4 +1,4 @@
-コミュ英Lesson2
+コミュ英Lesson 2, 4
 
 ～し続ける|keep ～ing
 if|～かどうか
@@ -48,3 +48,11 @@ Her plan seems to be impossible.|彼女の計画は不可能のように思わ�
 We need a large amount of time and money to solve this problem.|(私たちが)この問題を解決するには大量のお金と時間が必要だ。
 Nothing can stop me from doing what I believe I should do.|私がすべきだと思うことを私がするのを何も止められない。
 It seems that your life is full of challenges.|あなたの人生は挑戦(課題、問題)に満ちているようです。
+
+
+The president at that time made a speech.|当時の大統領が演説をした。
+He believed that human happiness was connected to the environment.|彼は、人類の幸福が環境とつながっていると信じていた。
+聴衆はムヒカがこれらの質問をするのを聞いた(耳にした)。|The audience heard Mujica ask these questions.
+70ないし80億人が、裕福な西洋社会の(それ、つまり生活様式)と同じ生活様式を楽しめるか。|Can seven or eight billion people enjoy the same lifestyle as that in the rich Western societies?
+He asked the audience what would happen if everyone on earth enjoyed a rich lifestyle.|彼は聴衆に、地上の全員が豊かな生活様式を楽しめば何が起こるかを尋ねた。
+He thought that seeking economic development hurt the earth.|彼は、経済的な発展を求めることが地球を傷つけると考えていた。
