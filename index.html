@@ -35,6 +35,7 @@
 	<body>
 		<p>
 			<span class="tab" onclick="settab(this);start('./3-pp-146-147.txt');">中3教146</span>
+			<span class="tab" onclick="settab(this);start('./hjswords.txt');">中学基礎</span>
 			<span class="tab" onclick="settab(this);start('./okadama-2-202202.txt');">丘2コ</span>
 			<span class="tab" onclick="settab(this);start('./okadama-2e-202202.txt');">丘2表</span>
 		</p>
@@ -80,7 +81,7 @@
 					next.classList.remove("pulse");
 					let q = document.getElementById("q");
 					if (qa.length < 1){
-						q.innerHTML = "<p>🎉 " + totalnum + "/" + totalnum + "</p>"
+						q.innerHTML = "<p>🎉 " + used.length + "/" + totalnum + "</p>"
 							+ "<div>" + used.join("<br />") + "</div>";
 						next.removeEventListener("click", nextListener);
 						// next.classList.add("collapse");
