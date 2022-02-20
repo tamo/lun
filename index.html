@@ -101,6 +101,7 @@
 							+ "<div>" + used.join("<br />") + "</div>";
 						stopbtn.removeEventListener("click", stopListener);
 						stopbtn.classList.add("collapse");
+						nextbtn.removeEventListener("click", nextListener);
 						let retryListener =  function(e){
 							nextbtn.removeEventListener("click", retryListener);
 							start(fname);
