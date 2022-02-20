@@ -59,6 +59,8 @@
 			let datafile = new XMLHttpRequest();
 			datafile.open("GET", fname, true);
 			datafile.onload = function(){
+				if (datafile.readyState != 4){ return; }
+				if (datafile.status != 200){ return; }
 				let lines = datafile.responseText.split("\n");
 				let qa = [];
 				let used = [];
@@ -134,7 +136,7 @@
 				let stop = document.getElementById("stop");
 				stop.classList.remove("collapse");
 				let stopListener = function(e){
-					qa.length = 0;
+					qa = [];
 					nextListener();
 				};
 				stop.addEventListener("click", stopListener);
