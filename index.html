@@ -53,6 +53,11 @@
 		let qa = [];
 		let used = [];
 		let totalnum = 0;
+		let nextListener = null;
+		let stopListener = null;
+		const q = document.getElementById("q");
+		const next = document.getElementById("next");
+		const stop = document.getElementById("stop");
 		function settab(tobeset){
 			const tabs = Array.from(document.getElementsByClassName("tab"));
 			tabs.forEach(function(tab){
@@ -82,17 +87,15 @@
 				qa.sort(function(a, b){
 					return Math.random() - 0.5;
 				})
-				let next = document.getElementById("next");
+				next.removeEventListener("click", nextListener);
 				next.classList.remove("collapse");
-				let nextListener = function(e){
+				nextListener = function(e){
 					next.classList.remove("pulse");
-					let q = document.getElementById("q");
 					if (qa.length < 1){
 						q.innerHTML = "<p>🎉 " + used.length + "/" + totalnum + "</p>"
 							+ "<div>" + used.join("<br />") + "</div>";
 						stop.removeEventListener("click", stopListener);
 						stop.classList.add("collapse");
-						next.removeEventListener("click", nextListener);
 						let retryListener =  function(e){
 							next.removeEventListener("click", retryListener);
 							start(fname);
@@ -138,9 +141,9 @@
 					q_txt.classList.add("pulse");
 				};
 				next.addEventListener("click", nextListener);
-				let stop = document.getElementById("stop");
 				stop.classList.remove("collapse");
-				let stopListener = function(e){
+				stop.removeEventListener("click", stopListener);
+				stopListener = function(e){
 					qa = [];
 					nextListener();
 				};
