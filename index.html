@@ -49,113 +49,118 @@
 		<button id="next" class="collapse">⏭️</button>
 		<button id="stop" class="collapse">⏹️</button>
 		<script>
+		function settab(tobeset){
+			const tabs = Array.from(document.getElementsByClassName("tab"));
+			tabs.forEach(function(tab){
+				tab.style.borderStyle="outset";
+			});
+			tobeset.style.borderStyle="inset";
+		}
 		let datafile = null;
 		let nextListener = null;
 		let stopListener = null;
 		const q = document.getElementById("q");
 		let nextbtn = document.getElementById("next");
 		let stopbtn = document.getElementById("stop");
-		function settab(tobeset){
-			const tabs = Array.from(document.getElementsByClassName("tab"));
-			tabs.forEach(function(tab){
-				tab.style.borderStyle="outset";
-			});
-			tobeset.style.borderStyle='inset';
-		}
-		function start(fname){
-			// clear the event handlers by cloning the node
-			let nextnew = nextbtn.cloneNode(true);
-			nextbtn.parentNode.replaceChild(nextnew, nextbtn);
-			nextbtn = document.getElementById("next");
-			let stopnew = stopbtn.cloneNode(true);
-			stopbtn.parentNode.replaceChild(stopnew, stopbtn);
-			stopbtn = document.getElementById("stop");
-			// start reading the data
-			datafile = new XMLHttpRequest();
-			datafile.open("GET", fname, true);
-			datafile.onload = function(){
-				if (datafile.readyState != 4){ return; }
-				if (datafile.status != 200){ return; }
-				let lines = datafile.responseText.split("\n");
-				let qa = [];
-				let used = [];
-				lines.forEach(function(line){
-					let pair = line.split("|");
-					if (pair.length == 2){
-						qa.push(pair);
-					} else {
-						if(line.length > 0)
-							console.log("[not a qa] " + line);
-					}
-				})
-				let totalnum = qa.length;
-				qa.sort(function(a, b){
-					return Math.random() - 0.5;
-				})
-				nextbtn.removeEventListener("click", nextListener);
-				nextbtn.classList.remove("collapse");
-				nextListener = function(e){
-					nextbtn.classList.remove("pulse");
-					if (qa.length < 1){
-						q.innerHTML = "<p>🎉 " + used.length + "/" + totalnum + "</p>"
-							+ "<div>" + used.join("<br />") + "</div>";
-						stopbtn.removeEventListener("click", stopListener);
-						stopbtn.classList.add("collapse");
-						nextbtn.removeEventListener("click", nextListener);
-						let retryListener =  function(e){
-							nextbtn.removeEventListener("click", retryListener);
-							start(fname);
-						};
-						nextbtn.addEventListener("click", retryListener);
-						return;
-					}
-					let q_array = qa.pop();
-					used.push(q_array[1] + " = " + q_array[0]);
-					let pos = totalnum - qa.length;
-					q.innerHTML = "<button id='q_txt'>"
-						+ q_array[1]
-						+ "</button>"
-						+ "<button id='a_pron'>🔊</button>"
-						+ "<span id='progressbar'>"
-						+ " <progress max=" + totalnum + " value=" + pos + "></progress>"
-						+ " <span id='pos'>" + pos + "/" + totalnum + "</span>"
-						+ "</span>"
-						+ "<p id='a_txt' class='collapse'>"
-						+ q_array[0]
-						+ "</p>";
-					let a_pron_rate = 1.0;
-					let a_pron = document.getElementById("a_pron");
-					a_pron.addEventListener("click",function(e){
-						let u = new SpeechSynthesisUtterance();
-						u.lang = "en-US";
-						u.text = q_array[0];
-						u.rate = a_pron_rate;
-						speechSynthesis.speak(u);
-						a_pron_rate *= 0.6;
-						let last_used = used.pop();
-						used.push("🔊" + last_used);
-					});
-					let q_txt = document.getElementById("q_txt");
-					q_txt.addEventListener("click", function(e){
-						q_txt.classList.remove("pulse");
-						let a_txt = document.getElementById("a_txt");
-						a_txt.classList.toggle("collapse");
-						nextbtn.classList.add("pulse");
-						let last_used = used.pop();
-						used.push("<strong>" + last_used + "</strong>");
-					});
-					q_txt.classList.add("pulse");
-				};
-				nextbtn.addEventListener("click", nextListener);
+		function procdata(){
+			if (datafile.readyState != 4 || datafile.status != 200)
+				return;
+			let qa = [];
+			let used = [];
+			let lines = datafile.responseText.split("\n");
+			lines.forEach(function(line){
+				let pair = line.split("|");
+				if (pair.length == 2){
+					qa.push(pair);
+				} else {
+					if(line.length > 0)
+						console.log("[not a qa] " + line);
+				}
+			})
+			let totalnum = qa.length;
+			qa.sort(function(a, b){
+				return Math.random() - 0.5;
+			})
+			let showQ = function(q_array){
+				used.push(q_array[1] + " = " + q_array[0]);
+				let pos = totalnum - qa.length;
+				q.innerHTML = "<button id='q_txt'>"
+					+ q_array[1]
+					+ "</button>"
+					+ "<button id='a_pron'>🔊</button>"
+					+ "<span id='progressbar'>"
+					+ " <progress max=" + totalnum + " value=" + pos + "></progress>"
+					+ " <span id='pos'>" + pos + "/" + totalnum + "</span>"
+					+ "</span>"
+					+ "<p id='a_txt' class='collapse'>"
+					+ q_array[0]
+					+ "</p>";
+				let a_pron_rate = 1.0;
+				let a_pron = document.getElementById("a_pron");
+				a_pron.addEventListener("click",function(e){
+					let u = new SpeechSynthesisUtterance();
+					u.lang = "en-US";
+					u.text = q_array[0];
+					u.rate = a_pron_rate;
+					speechSynthesis.speak(u);
+					a_pron_rate *= 0.6;
+					let last_used = used.pop();
+					used.push("🔊" + last_used);
+				});
+				let q_txt = document.getElementById("q_txt");
+				q_txt.addEventListener("click", function(e){
+					q_txt.classList.remove("pulse");
+					let a_txt = document.getElementById("a_txt");
+					a_txt.classList.toggle("collapse");
+					nextbtn.classList.add("pulse");
+					let last_used = used.pop();
+					used.push("<strong>" + last_used + "</strong>");
+				});
+				q_txt.classList.add("pulse");
+			};
+			let showResult = function(){
+				q.innerHTML = "<p>🎉 " + used.length + "/" + totalnum + "</p>"
+					+ "<div>" + used.join("<br />") + "</div>";
+				stopbtn.classList.add("collapse");
 				stopbtn.removeEventListener("click", stopListener);
-				stopbtn.classList.remove("collapse");
-				stopListener = function(e){
-					qa = [];
-					nextListener();
+				nextbtn.removeEventListener("click", nextListener);
+				let retryListener =  function(e){
+					nextbtn.removeEventListener("click", retryListener);
+					start(fname);
 				};
-				stopbtn.addEventListener("click", stopListener);
+				nextbtn.addEventListener("click", retryListener);
+			};
+			nextbtn.removeEventListener("click", nextListener);
+			nextListener = function(e){
+				nextbtn.classList.remove("pulse");
+				if (qa.length > 0)
+					showQ(qa.pop());
+				else
+					showResult();
+			};
+			nextbtn.addEventListener("click", nextListener);
+			nextbtn.classList.remove("collapse");
+			stopbtn.removeEventListener("click", stopListener);
+			stopListener = function(e){
+				qa = [];
 				nextListener();
 			};
+			stopbtn.addEventListener("click", stopListener);
+			stopbtn.classList.remove("collapse");
+			nextListener();
+		}
+		function clearHandlers(btn){
+			let newbtn = btn.cloneNode(true);
+			btn.parentNode.replaceChild(newbtn, btn);
+		}
+		function start(fname){
+			clearHandlers(nextbtn);
+			nextbtn = document.getElementById("next");
+			clearHandlers(stopbtn);
+			stopbtn = document.getElementById("stop");
+			datafile = new XMLHttpRequest();
+			datafile.open("GET", fname, true);
+			datafile.onload = procdata;
 			datafile.send(null);
 		}
 		</script>
