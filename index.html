@@ -58,7 +58,6 @@
 		function start(fname){
 			let datafile = new XMLHttpRequest();
 			datafile.open("GET", fname, true);
-			datafile.send(null);
 			datafile.onload = function(){
 				let lines = datafile.responseText.split("\n");
 				let qa = [];
@@ -132,7 +131,6 @@
 					q_txt.classList.add("pulse");
 				};
 				next.addEventListener("click", nextListener);
-
 				let stop = document.getElementById("stop");
 				stop.classList.remove("collapse");
 				let stopListener = function(e){
@@ -140,9 +138,9 @@
 					nextListener();
 				};
 				stop.addEventListener("click", stopListener);
-
 				next.click();
 			};
+			datafile.send(null);
 		}
 		</script>
 	</body>
