@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 	<head>
 		<title>lun - fun learning tool for students</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -44,13 +44,19 @@
 			<span class="tab" onclick="fname='./okadama-2e-202202.txt';settab(this);">丘2表</span>
 		</p>
 		<p id="q">
-			範囲を選んでください。<br />
-			その後、問題文をタップで答えを表示できます。<br />
-			🔊でヒントとして音声を出せます。<br />
-			⏭で次の問題に進みます。(途中で終わるなら⏹️)
+			勉強するんですね！ 始めましょう！
 		</p>
 		<button id="next" class="collapse">⏭️</button>
 		<button id="stop" class="collapse">⏹️</button>
+		<div id="helpdiv">
+			<button id="helpbtn" class="collapse">❔</button>
+			<p id="helptxt">
+				最初は、上のボタンで範囲を選んでください。<br />
+				問題文をタップすると答えを表示できます。(終わりにも一覧できます)<br />
+				🔊でヒントとして音声を出せます。(2回目以降徐々に遅くなります)<br />
+				⏭️で次の問題に進みます。(途中で終わりたいなら⏹️)
+			</p>
+		</div>
 		<script>
 		function settab(tobeset){
 			const tabs = Array.from(document.getElementsByClassName("tab"));
@@ -64,6 +70,13 @@
 		let nextListener = null;
 		let stopListener = null;
 		const q = document.getElementById("q");
+		const helpdiv = document.getElementById("helpdiv");
+		const helpbtn = document.getElementById("helpbtn");
+		const helptxt = document.getElementById("helptxt");
+		helpdiv.addEventListener("click", function(e){
+			helpbtn.classList.toggle("collapse");
+			helptxt.classList.toggle("collapse");
+		});
 		let nextbtn = document.getElementById("next");
 		let stopbtn = document.getElementById("stop");
 		function start(){
@@ -90,11 +103,11 @@
 					if(line.length > 0)
 						console.log("[not a qa] " + line);
 				}
-			})
+			});
 			let totalnum = qa.length;
 			qa.sort(function(a, b){
 				return Math.random() - 0.5;
-			})
+			});
 			let showQ = function(q_array){
 				used.push(q_array[1] + " = " + q_array[0]);
 				let pos = totalnum - qa.length;
