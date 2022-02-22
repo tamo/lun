@@ -15,6 +15,7 @@
 			#a_txt {opacity: 1; transition: all 1s ease-in-out 0s;}
 			.collapse {opacity: 0 !important;}
 			#next {width: 100%;}
+			#helpdiv * {display: inline-block;}
 			strong {font-size:140%;}
 			.pulse {animation: pulse 2s infinite;}
 			@keyframes pulse {
@@ -36,7 +37,7 @@
 	<body>
 		<p>
 			<span class="tab" onclick="settab(this, '3-pp-146-147');">中3教146</span>
-			<span class="tab" onclick="settab(this, 'hjswords');">中学基礎</span>
+			<span class="tab" onclick="settab(this, 'hjswords');">中基礎</span>
 			<span class="tab" onclick="settab(this, 'okadama-2-202202');">丘2コ</span>
 			<span class="tab" onclick="settab(this, 'okadama-2e-202202');">丘2表</span>
 		</p>
@@ -46,13 +47,13 @@
 		<button id="next" class="collapse">⏭️</button>
 		<button id="stop" class="collapse">⏹️</button>
 		<div id="helpdiv">
-			<span id="helpbtn">❔</span>
-			<span id="helptxt">
+			<button id="helpbtn" class="pulse">❔</button>
+			<div id="helptxt" class="collapse">
 				最初は、上のボタンで範囲を選んでください。<br />
 				問題文をタップすると答えを表示できます。(終わりにも一覧できます)<br />
 				🔊でヒントとして音声を出せます。(2回目以降徐々に遅くなります)<br />
 				⏭️で次の問題に進みます。(途中で終わりたいなら⏹️)
-			</span>
+			</div>
 		</div>
 		<script>
 		let fname="";
@@ -70,6 +71,7 @@
 		let stopListener = null;
 		const q = document.getElementById("q");
 		const helpdiv = document.getElementById("helpdiv");
+		const helpbtn = document.getElementById("helpbtn");
 		const helptxt = document.getElementById("helptxt");
 		helpdiv.addEventListener("click", function(e){
 			helptxt.classList.toggle("collapse");
@@ -77,6 +79,7 @@
 		let nextbtn = document.getElementById("next");
 		let stopbtn = document.getElementById("stop");
 		function start(){
+			helpbtn.classList.remove("pulse");
 			clearHandlers(nextbtn);
 			nextbtn = document.getElementById("next");
 			clearHandlers(stopbtn);
