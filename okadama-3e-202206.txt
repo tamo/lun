@@ -1,37 +1,4 @@
-英語表現1 Lesson 9 ～
-
-My grandmother gave me this watch.|祖母が私にこの腕時計をくれた。
-My father bought me a scarf.|父は私に(一枚の)スカーフを買ってくれた。
-SHe gave a tie to her father.|彼女はネクタイを父親に(！)あげた。
-He bought a diamond ring for his wife.|彼はダイヤの指輪を妻に(！)買った。
-We always call him MJ.|ぼくたちは彼をいつもエムジェイと呼んでいる。
-He made me happy.|彼が私を幸せにしてくれた。
-We made him captain.|私たちは彼をキャプテンにした。
-He kept it a secret.|彼はそれを秘密(のまま)にし(続け)た。
-I was given this book by my sister.|私はこの本を姉から与えられた。
-This fish is called a trout in English.|この魚は英語でトラウトと呼ばれている。
-This book was given to me by my sister.|この本は姉によって私に与えられた。
-The teacher told us an interesting story.|その教師は我々に興味深い話をした。
-Ms. Smith teaches English to Japanese business people.|スミスさん(女性)は日本人の社会人に(！)英語を教えています。
-I sometimes choose a tie for my father.|私はときどき父にネクタイを選んであげます。
-I bought a scarf for my mom as a birthday present.|私は誕生日の贈り物としてママにスカーフを買ってあげました。
-My brother named the stuffed bear Teddy.|弟はそのぬいぐるみの熊をテディと名付けた。
-Wear gloves and keep your hands warm.|手袋をして手を温かくしておけ。
-The teacher left the windows open during the class.|その教師は授業中、窓を開けっぱなしにした。
-Will you keep this plan a secret for a while?|この計画をしばらく秘密にしておいてくれないか。
-This award was given to him for his great work.|この賞は彼の偉業を称えて彼に与えられました。
-The computer room should be kept clean.|コンピュータ室はきれいにしておくべきです。
-
-Bob's success gave him a sense of satisfaction.|ボブの成功は彼に満足感を与えた。
-Dan showed me a positive attitude toward work.|ダンは仕事への前向きな態度を私に見せた。
-Ann cooked her guests a lot of food.|アンは客たちにたくさんの食べものを作った。
-Mr. Brown sometimes tells a joke to his students.|ブラウン先生(男)はときどき生徒に冗談を言う。
-Tim often buys various toys for his grandchild.|ティムはよく孫(単数)に(！)にいろいろなおもちゃを買う。
-Please keep your children quiet in the hospital.|病院内ではお子様方を静かにさせておいてください。
-Jenet was taught dance by Ms. Jackson.|ジャネットはジャクソン先生(女性)にダンスを教えてもらった。
-Ken was shown a picture of Amy's family last week.|ケンは先週エイミーの家族の写真を見せてもらった。
-The baby penguin was named Pyoko by an elementary school girl.|その赤ちゃんペンギンは小学生の女の子によってピョコと名付けられた。
-You're welcome. / That's OK. / No problem. / Don't mention it. / My pleasure.|(「ありがとう」と言われたときの返し)
+英語表現1 Lesson 10, 11
 
 It's necessary to learn from mistakes.|失敗から学ぶことは必要だ。
 To improve is to change.|向上することは変化するということだ。
@@ -60,3 +27,45 @@ It is convenient to live near the station.|駅の近くに住むのは便利だ�
 Lucy doesn't know who to ask for advice.|ルーシーはだれに助言を求めればいいか分からない。
 Go for it! / Hang in there! / Stick to it! / Keep going!|(それに向かって、諦めずに)がんばれ！
 
+Sorry to bother you, but do you have time to talk?|(お邪魔して)すみませんが、話をする時間がありますか。
+I have a lot of work to do today.|今日は、やるべき仕事がたくさんある。
+He's looking for a house to live in.|彼は住む家を探している。
+She kept her promise to think positive.|彼女は、前向きに考えるという約束を守った。
+I came home to find my bike had been stoken.|帰宅して自転車が盗まれていたことがわかった。
+You have to take the test (in order / so as) to study abroad.|留学するために君はそのテストを受けなければいけない。
+I told her a lie (so as / in order) not to hurt her.|彼女を傷付けないように、私は彼女に嘘をついた。
+I hurried to the airport, only to learn the flight had been canceled.|空港まで急いだが、結局フライトはキャンセルされていたと分かっただけだった。
+I'm sorry to hear your accident.|あなたの事故のことを聞いて気の毒に思っている。
+She was very kind to help me. (It was very kind of her to...)|手伝ってくれるなんて彼女はとても親切だ。
+It was brave of you to tell the truth. (You were brave to...)|真実を伝えるとは、あなたは勇敢でした。
+He's sure to fall in love with you.|彼はきっとあなたに惚れるだろう。
+Do you have someone to talk to about it?|あなたは、それについて話す(talk)相手がだれかいるのか。
+He expressed his desire to become a politician.|彼は政治家になりたいという願望を表明した。
+She grew up to become a famous ballerina.|彼女は成長して有名なバレリーナ(ballerina)になった。
+She was careless to make such a simple mistake. (It was careless of her to...)|あんな単純な間違いをするなんて彼女は不注意だった。
+It was kind of you to give your seat to that elderly woman. (You were kind to...)|あなた、あのおばあさんに席をゆずるとは親切でしたね。
+It is likely to snow tomorrow.|明日は雪が降りそうです。
+I'm willing to help you anytime.|いつでもあなたの手伝いをしますよ。
+My motivation to study is very strong.|私の勉強する意欲はとても強い。
+I'm very happy to be here with you.|私はここにあなたたちといることができて、とてもうれしいです。
+It was foolish of you to believe him.|彼のことを信じるとは、あなたは愚か(foolish)だった。
+What do you think is necessary to achieve your dream?|あなたの夢を達成するには何が必要だと思いますか。
+
+We need nutritious food to be healthy.|私たちは健康でいるために栄養のある食べ物が必要だ。
+
+I'm happy to see you again.|きみにまた会えて嬉しいよ。
+He's likely to join our club.|彼は僕たちのクラブに入りそうだ。
+My brother made every effort to become a doctor.|兄は医者になるためにあらゆる努力をした。
+Ava went on a diet (in order) to become a fashion model.|エヴァはファッションモデルになるためダイエットした。
+I get regular exercise so as to be in good shape.|私は体調を良くするため定期的な運動をしている。
+I ran to the station, only to miss my train.|駅まで走ったが、結局は乗り遅れただけだった。
+It is wise of you to eat healthy food.|健康的な食べ物をとるとは、あなたは賢明だ。
+Bill is sure to catch up with the other students soon.|ビルはきっとすぐほかの生徒たちに追いつくだろう。
+My mother is likely to be shocked by that movie.|私の母はその映画にショックを受けそうだ。
+I missed the opportunity to say hello to Ellie.|私はエリーにあいさつする機会(oで始まる語)を逃した。
+Lucy come home to find her husband sleeping well.|ルーシーが帰宅すると、夫がぐっすり寝ていた。
+What a brave man Joe was to climb Mt. Everest!|エベレスト山に登るとは、ジョーはなんて勇敢な男だったろう！
+We have many topics to talk about today.|我々は本日、話す話題がたくさんある。
+I used the Shinkansen so as not to waste time.|私は時間を無駄にしないよう新幹線を使った。
+Excuse me, but can I ask you something?|すみませんが、おたずねしてもいいですか。
+Sorry, I'm in a hurry and have no time to talk now.|ごめんなさい、今、急いでいてお話しする時間がないんです。
