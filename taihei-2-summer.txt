@@ -55,7 +55,7 @@ improve|改善する、上達させる
 measure|…をはかる
 various|いろいろな
 general|一般的な、総合的な
-through|(…のために、…に)と書いてあるけど、「…を通して」だと思う
+through|…のために、…に (普通は「…を通して」と覚える単語)
 however|しかしながら、けれども
 husband|夫
 culture|文化
