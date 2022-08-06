@@ -52,28 +52,67 @@ relate|…を(～に)関係させる
 weak|弱い、かすかな
 quietly|静かに、落ちついて
 
-speak - spoke - spoken|(言語など)を話す→原形、過去形、過去分詞
-be - was/were - been|いる、ある、…です→原形、過去形、過去分詞
-write - wrote - written|…を書く→原形、過去形、過去分詞
-hold - held - held|…を握る、抱く→原形、過去形、過去分詞
-see - saw - seen|…に会う、見える(目に入る)→原形、過去形、過去分詞
-read - read - read|…を読む→原形、過去形、過去分詞
-hear - heard - heard|…を聞く(耳に入る)→原形、過去形、過去分詞
-become - became - become|…になる→原形、過去形、過去分詞
+speak - spoke - spoken|(言語など)を話す→原形
+speak - spoke - spoken|(言語など)を話した→過去形
+speak - spoke - spoken|(言語など)が話され→過去分詞
+be - was/were - been|なる、ある、…です→原形
+be - was/were - been|(単数が)いた、あった、…でした→過去形(単数)
+be - was/were - been|(複数が)いた、あった、…でした→過去形(複数)
+be - was/were - been|(have,has+で)行ったことがある、あり続けている、なったところだ、等→過去分詞
+write - wrote - written|…を書く→原形
+write - wrote - written|…を書いた→過去形
+write - wrote - written|書かれ、…を書いたことがある→過去分詞
+hold - held - held|…を握る、抱く→原形
+hold - held - held|…を握った、抱いた→過去形
+hold - held - held|握られ、抱かれ、等→過去分詞
+see - saw - seen|…に会う、見える(目に入る)→原形
+see - saw - seen|…に会った、見えた(目に入った)→過去形
+see - saw - seen|見られ(目に入)、(have,has+で)会ったことが、等→過去分詞
+read - read - read|…を読む→原形
+read - read - read|…を読んだ→原形、過去形、過去分詞
+read - read - read|読まれ、(have,has+で)読んだことが、等→原形、過去形、過去分詞
+hear - heard - heard|…を聞く(耳に入る)→原形
+hear - heard - heard|…を聞いた(耳に入った)→過去形
+hear - heard - heard|聞かれ、(have,has+で)…を聞いたことが、等→過去分詞
+become - became - become|…になる→原形
+become - became - become|…になった→過去形
+become - became - become|(have,has+で)…になったところ、なったことが→過去分詞
 
 after a while|しばらくして
+after a while|しばらくして
+one by one|1人[1つ]ずつ
 one by one|1人[1つ]ずつ
 not always|いつも[必ずしも]…とは限らない
+not always|いつも[必ずしも]…とは限らない
+get over|…を乗り越える
 get over|…を乗り越える
 more and more|ますます(多くの)
+more and more|ますます(多くの)
+on TV|テレビで
 on TV|テレビで
 work on|…に取り組む、従事する
+work on|…に取り組む、従事する
+feel free to|遠慮なく…する
 feel free to|遠慮なく…する
 
+It is said that …|と言われている
+It is said that …|と言われている
 It is said that she is the best tennis player in the world.|彼女は世界一のテニスプレーヤーであると言われている。
+be amazed at|…に驚かされる
+be amazed at|…に驚かされる
 I was amazed at his taiko performance.|私は彼の太鼓の演奏に驚かされました。
+be satisfied with …|に満足する
+be satisfied with …|に満足する
 I'm satisfied with the game result.|私は試合結果に満足しています。
-How long have you lived in Sapporo?|あなたはどのくらい長く札幌に住んでいますか。
+How long …?|どのくらい長く[長い]
+How long …?|どのくらい長く[長い]
+How long have you lived in Sapporo?|あなたはどのくらい札幌に住んでいますか。
+be different from …|…とは違っている
+be different from …|…とは違っている
 This car is different from that one.|この車はあの車とは違います。
+not only … but also ～|…だけでなく～もまた
+not only … but also ～|…だけでなく～もまた
 He is popular not only in America but also in Japan.|彼はアメリカだけでなく日本でも人気があります。
+so … that ～|とても…なので～だ
+so … that ～|とても…なので～だ
 I get up so early that I could see a beautiful sunrise.|私はとても早く起きたので美しい日の出を見ることができました。
