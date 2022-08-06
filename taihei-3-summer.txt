@@ -1,0 +1,79 @@
+太平中3スペコン
+
+fact|事実
+believe|…だと思う、信じる
+increase|…を増やす、増大させる
+brain|頭脳
+wide|幅の広い、(範囲などが)広い
+apply|当てはまる
+below|下に、下記に[の]
+above|上に、上記に[の]
+ever|[疑問文で]今まで、かつて
+match|試合、競技
+internet|インターネット
+opinion|意見、考え
+support|…を支援する、応援する
+bright|明るい
+super|とても、すごく
+yet|[疑問文で]もう、すでに [否定文で]まだ、今のところ
+sleep|眠る、寝ている
+already|すでに、もう
+since|…(して)以来
+less|もっと少なく、より…でなく
+strict|厳しい
+speed|速度
+actually|実は、本当は
+pop|大衆的な
+goodbye|さようなら
+
+let|に…させる
+until|…まで(ずっと)
+die|死ぬ
+fly|飛ぶ
+drive|運転する
+law|法律、法
+report|報告
+road|道路、道
+cry|泣く
+arm|腕
+real|本当の、本物の
+while|(少しの)時間、(しばらくの)間
+user|使用[利用]者
+amaze|…をびっくりさせる
+website|ウェブサイト
+either|[否定文の文末で]…もまた(～ない)
+challenge|難問
+image|像、肖像、印象
+include|…を含む、含める
+danger|危険(性)
+environment|環境
+development|開発
+relate|…を(～に)関係させる
+weak|弱い、かすかな
+quietly|静かに、落ちついて
+
+speak - spoke - spoken|(言語など)を話す→原形、過去形、過去分詞
+be - was/were - been|いる、ある、…です→原形、過去形、過去分詞
+write - wrote - written|…を書く→原形、過去形、過去分詞
+hold - held - held|…を握る、抱く→原形、過去形、過去分詞
+see - saw - seen|…に会う、見える(目に入る)→原形、過去形、過去分詞
+read - read - read|…を読む→原形、過去形、過去分詞
+hear - heard - heard|…を聞く(耳に入る)→原形、過去形、過去分詞
+become - became - become|…になる→原形、過去形、過去分詞
+
+after a while|しばらくして
+one by one|1人[1つ]ずつ
+not always|いつも[必ずしも]…とは限らない
+get over|…を乗り越える
+more and more|ますます(多くの)
+on TV|テレビで
+work on|…に取り組む、従事する
+feel free to|遠慮なく…する
+
+It is said that she is the best tennis player in the world.|彼女は世界一のテニスプレーヤーであると言われている。
+I was amazed at his taiko performance.|私は彼の太鼓の演奏に驚かされました。
+I'm satisfied with the game result.|私は試合結果に満足しています。
+How long have you lived in Sapporo?|あなたはどのくらい長く札幌に住んでいますか。
+This car is different from that one.|この車はあの車とは違います。
+He is popular not only in America but also in Japan.|彼はアメリカだけでなく日本でも人気があります。
+I get up so early that I could see a beautiful sunrise.|私はとても早く起きたので美しい日の出を見ることができました。
