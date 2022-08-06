@@ -52,31 +52,31 @@ relate|…を(～に)関係させる
 weak|弱い、かすかな
 quietly|静かに、落ちついて
 
-speak - spoke - spoken|(言語など)を話す→原形
-speak - spoke - spoken|(言語など)を話した→過去形
-speak - spoke - spoken|(言語など)が話され→過去分詞
-be - was/were - been|なる、ある、…です→原形
-be - was/were - been|(単数が)いた、あった、…でした→過去形(単数)
-be - was/were - been|(複数が)いた、あった、…でした→過去形(複数)
-be - was/were - been|(have,has+で)行ったことがある、あり続けている、なったところだ、等→過去分詞
-write - wrote - written|…を書く→原形
-write - wrote - written|…を書いた→過去形
-write - wrote - written|書かれ、…を書いたことがある→過去分詞
-hold - held - held|…を握る、抱く→原形
-hold - held - held|…を握った、抱いた→過去形
-hold - held - held|握られ、抱かれ、等→過去分詞
-see - saw - seen|…に会う、見える(目に入る)→原形
-see - saw - seen|…に会った、見えた(目に入った)→過去形
-see - saw - seen|見られ(目に入)、(have,has+で)会ったことが、等→過去分詞
-read - read - read|…を読む→原形
-read - read - read|…を読んだ→原形、過去形、過去分詞
-read - read - read|読まれ、(have,has+で)読んだことが、等→原形、過去形、過去分詞
-hear - heard - heard|…を聞く(耳に入る)→原形
-hear - heard - heard|…を聞いた(耳に入った)→過去形
-hear - heard - heard|聞かれ、(have,has+で)…を聞いたことが、等→過去分詞
-become - became - become|…になる→原形
-become - became - become|…になった→過去形
-become - became - become|(have,has+で)…になったところ、なったことが→過去分詞
+speak|(言語など)を話す→原形
+spoke|(言語など)を話した→過去形
+spoken|(言語など)が話され→過去分詞
+be|なる、ある、…です→原形
+was|(単数が)いた、あった、…でした→過去形(単数)
+were|(複数が)いた、あった、…でした→過去形(複数)
+been|(have,has+で)行ったことがある、あり続けている、なったところだ、等→過去分詞
+write|…を書く→原形
+wrote|…を書いた→過去形
+written|書かれ、…を書いたことがある→過去分詞
+hold|…を握る、抱く→原形
+held|…を握った、抱いた→過去形
+held|握られ、抱かれ、等→過去分詞
+see|…に会う、見える(目に入る)→原形
+saw|…に会った、見えた(目に入った)→過去形
+seen|見られ(目に入)、(have,has+で)会ったことが、等→過去分詞
+read|…を読む→原形
+read|…を読んだ→原形、過去形、過去分詞
+read|読まれ、(have,has+で)読んだことが、等→原形、過去形、過去分詞
+hear|…を聞く(耳に入る)→原形
+heard|…を聞いた(耳に入った)→過去形
+heard|聞かれ、(have,has+で)…を聞いたことが、等→過去分詞
+become|…になる→原形
+became|…になった→過去形
+become|(have,has+で)…になったところ、なったことが→過去分詞
 
 after a while|しばらくして
 after a while|しばらくして
