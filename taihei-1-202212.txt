@@ -1,0 +1,106 @@
+中1冬スペコン
+
+hair|髪
+idea|考え
+end|終わり
+movie|映画
+age|年齢
+language|言語
+student|学生
+spot|地点
+camera|カメラ
+door|ドア
+piece|作品、個
+show|を見せる
+role|役割
+history|歴史
+office|事務所
+minute|分
+hour|1時間
+rest|休息
+fever|熱
+tomorrow|明日
+something|何か
+other|他の (「別の」や「もう一つ」なら an を付けた語だと思う)
+mine|私のもの
+yours|あなた(たち)のもの
+his|彼の、彼のもの
+him|彼を(に)
+hers|彼女のもの
+its|それの
+us|私たちを(に)
+ours|私たちのもの
+them|彼ら(彼女ら、それら)を(に)
+their|彼ら(彼女ら、それら)の
+theirs|彼ら(彼女ら、それら)のもの
+need|を必要とする
+
+ate|食べた
+saw|見た
+had|持った
+has|持ってる(三人称単数現在)
+borrow|を借りる
+open|開く
+perform|演じる
+wait|待つ
+say|言う
+happen|起こる
+forget|忘れる
+quiet|静かな
+local|地方の
+foreign|外国の
+useful|有用な
+careful|注意深い
+bad|悪い
+free|ひまな
+sure|もちろん、確信して
+only|だけ
+maybe|もしかすると
+still|今でも
+then|そのとき
+quickly|速く
+bye|さようなら
+
+over there|向こうで
+lots of|たくさんの(2語)
+a lot of|たくさんの(3語)
+very much|とても
+and so on|など
+be careful with|の扱いに気をつける
+take a rest|ひと休みする
+sound like|のように聞こえる
+look forward to|を楽しみに待つ
+of course|もちろん
+Come on.|さあ。がんばれ。
+No problem.|いいですよ。もちろん。
+All right.|よろしい。わかりました。
+Just a moment.|ちょっと待って。
+Here you are.|はい、どうぞ。
+That's too bad.|それはいけませんね。
+What's up?|どうしたのですか。
+See you.|またね。
+Happy birthday!|お誕生日おめでとう。
+Oh, my goodness!|えっ。おや。まあ。
+You're welcome.|どういたしまして。
+
+Look at the people on the stage.|ステージの上にいる人々を見てください。
+I like dancing.|私は踊ることが好きです。
+You are good at telling a story.|あなたは物語を話すのが上手です。
+I went to the summer festival yesterday.|私は昨日夏祭りに行きました。
+Takuya goes diving on weekends.|卓也は週末にダイビングをしに行きます。
+Takuya doesn't write a blog.|卓也はブログを書きません。
+Does anyone have any questions?|何か質問がある人はいませんか。
+Can I turn on the fan?|扇風機を付けてもいいですか。
+Can you help me with my homework?|私の宿題を手伝ってくれますか。
+
+That is Meg. Do you know her?|あちらはメグです。彼女を知っていますか。
+Which does she speak, English or Japanese?|彼女は英語と日本語のどちらを話しますか。
+Whose ticket is this?|これはだれのチケットですか。
+What's wrong?|どうしましたか。
+I have a headache.|頭痛がします。
+I am watching a movie now.|私は今映画をみています。
+Are you taking a picture?|あなたは写真を撮っているのですか。
+What are you doing?|あなたは何をしていますか。
+We're preparing a surprise party.|私たちはサプライズパーティーの準備をしています。
+How nice!|なんて素敵なんでしょう。
+What a cute bag!|なんてかわいいバッグでしょう。
