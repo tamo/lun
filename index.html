@@ -36,12 +36,8 @@
 	</head>
 	<body>
 		<p>
-			<span>創成:</span>
-			<span class="tab" onclick="settab(this, 'sousei-1-202211');">ユ英和</span>
-			<span class="tab" onclick="settab(this, 'sousei-1-202211-rev');">逆連想</span>
-			<span>総合:</span>
-			<span class="tab" onclick="settab(this, '3-pp-146-147');">中3教146</span>
-			<span class="tab" onclick="settab(this, 'hjswords');">中基礎</span>
+			<span class="tab" onclick="settab(this);" id="3-pp-146-147">中3教146</span>
+			<span class="tab" onclick="settab(this);" id="hjswords">中基礎</span>
 		</p>
 		<p id="q">
 			勉強するんですね！ 始めましょう！
@@ -58,9 +54,19 @@
 			</div>
 		</div>
 		<script>
+		window.onload = loadhash;
+		function loadhash(event){
+			const hash = window.location.hash;
+			if (hash){
+				const tobeset = document.querySelector(hash);
+				if (tobeset){
+					settab(tobeset);
+				}
+			}
+		}
 		let fname="";
-		function settab(tobeset, range){
-			fname="./" + range + ".txt";
+		function settab(tobeset){
+			fname="./" + tobeset.id + ".txt";
 			const tabs = Array.from(document.getElementsByClassName("tab"));
 			tabs.forEach(function(tab){
 				tab.style.borderStyle="outset";
