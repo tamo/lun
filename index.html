@@ -4,8 +4,9 @@
 		<title>lun - fun learning tool for students</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 		<style>
+			html {color: black; background-color: white;}
 			p {font-size: 130%;}
-			.tab {border-style: outset;}
+			.tab {border: outset white; color: blue; text-decoration: none;}
 			button {font-size: 200%;}
 			#q_txt {display: block; width: 100%;}
 			#a_pron {width: 45%;}
@@ -36,10 +37,10 @@
 	</head>
 	<body>
 		<p>
-			<span class="tab" onclick="settab(this);" id="snishi-2-202212">西2</span>
-			<span class="tab" onclick="settab(this);" id="taihei-1-202212">太1</span>
-			<span class="tab" onclick="settab(this);" id="3-pp-146-147">中3教146</span>
-			<span class="tab" onclick="settab(this);" id="hjswords">中基礎</span>
+			<a class="tab" href="#snishi-2-202212">西2</a>
+			<a class="tab" href="#taihei-1-202212">太1</a>
+			<a class="tab" href="#3-pp-146-147">中3教146</a>
+			<a class="tab" href="#hjswords">中基礎</a>
 		</p>
 		<p id="q">
 			勉強するんですね！ 始めましょう！
@@ -57,10 +58,11 @@
 		</div>
 		<script>
 		window.onload = loadhash;
+		window.onhashchange = loadhash;
 		function loadhash(event){
 			const hash = window.location.hash;
 			if (hash){
-				const tobeset = document.querySelector(hash);
+				const tobeset = document.querySelector('a[href$="' + hash + '"]');
 				if (tobeset){
 					settab(tobeset);
 				}
@@ -68,13 +70,15 @@
 		}
 		let fname="";
 		function settab(tobeset){
-			fname="./" + tobeset.id + ".txt";
+			fname="./" + tobeset.href.split("#").pop() + ".txt";
 			const tabs = Array.from(document.getElementsByClassName("tab"));
 			tabs.forEach(function(tab){
 				tab.style.borderStyle="outset";
+				tab.style.color="blue";
 			});
 			tobeset.style.borderStyle="inset";
-			start(fname);
+			tobeset.style.color="grey";
+			start();
 		}
 		let datafile = null;
 		let nextListener = null;
@@ -163,7 +167,7 @@
 				nextbtn.removeEventListener("click", nextListener);
 				let retryListener =  function(e){
 					nextbtn.removeEventListener("click", retryListener);
-					start(fname);
+					start();
 				};
 				nextbtn.addEventListener("click", retryListener);
 			};
