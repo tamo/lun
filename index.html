@@ -106,20 +106,17 @@
 					console.error("anchor not found", hash);
 					return;
 				}
-				const filename = (function settab(target) {
-					const tabs = [...document.getElementsByClassName("tab")];
-					tabs.forEach(function (tab) {
-						tab.style.borderStyle = "outset";
-						tab.style.color = "blue";
-					});
-					const filefromhash = target.href.split("#").pop();
-					if (filefromhash) {
-						target.style.borderStyle = "inset";
-						target.style.color = "grey";
-						return "./" + filefromhash + ".txt";
-					}
-				})(tobeset);
-				start(filename);
+				const tabs = [...document.getElementsByClassName("tab")];
+				tabs.forEach(function (tab) {
+					tab.style.borderStyle = "outset";
+					tab.style.color = "blue";
+				});
+				const filefromhash = tobeset.href.split("#").pop();
+				if (filefromhash) {
+					tobeset.style.borderStyle = "inset";
+					tobeset.style.color = "grey";
+					start("./" + filefromhash + ".txt");
+				}
 			}
 			let nextbtn = document.getElementById("next");
 			let stopbtn = document.getElementById("stop");
