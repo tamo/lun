@@ -2,33 +2,71 @@
 <html lang="ja">
 	<head>
 		<title>lun - fun learning tool for students</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 		<style>
-			html {color: black; background-color: white;}
-			p {font-size: 130%;}
-			.tab {border: outset white; color: blue; text-decoration: none;}
-			button {font-size: 200%;}
-			#q_txt {display: block; width: 100%;}
-			#a_pron {width: 45%;}
-			progress {width: 45%;}
-			#progressbar {position: relative;}
-			#pos {position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
-			#a_txt {opacity: 1; transition: all 1s ease-in-out 0s;}
-			.collapse {opacity: 0 !important;}
-			#next {width: 100%;}
-			#helpdiv * {display: inline-block;}
-			strong {font-size:140%;}
-			.pulse {animation: pulse 2s infinite;}
+			html {
+				color: black;
+				background-color: white;
+			}
+			p {
+				font-size: 130%;
+			}
+			.tab {
+				border: outset white;
+				color: blue;
+				text-decoration: none;
+			}
+			button {
+				font-size: 200%;
+			}
+			#q_txt {
+				display: block;
+				width: 100%;
+			}
+			#a_pron {
+				width: 45%;
+			}
+			progress {
+				width: 45%;
+			}
+			#progressbar {
+				position: relative;
+			}
+			#pos {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			#a_txt {
+				opacity: 1;
+				transition: all 1s ease-in-out 0s;
+			}
+			.collapse {
+				opacity: 0 !important;
+			}
+			#next {
+				width: 100%;
+			}
+			#helpdiv * {
+				display: inline-block;
+			}
+			strong {
+				font-size: 140%;
+			}
+			.pulse {
+				animation: pulse 2s infinite;
+			}
 			@keyframes pulse {
 				0% {
 					transform: scale(0.95);
 					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
 				}
-				70%	{
+				70% {
 					transform: scale(1);
 					box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
 				}
-				100%	{
+				100% {
 					transform: scale(0.95);
 					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 				}
@@ -42,9 +80,7 @@
 			<a class="tab" href="#3-pp-146-147">中3教146</a>
 			<a class="tab" href="#hjswords">中基礎</a>
 		</p>
-		<p id="q">
-			勉強するんですね！ 始めましょう！
-		</p>
+		<p id="q">勉強するんですね！ 始めましょう！</p>
 		<button id="next" class="collapse">⏭️</button>
 		<button id="stop" class="collapse">⏹️</button>
 		<div id="helpdiv">
@@ -57,143 +93,147 @@
 			</div>
 		</div>
 		<script>
-		window.onload = loadhash;
-		window.onhashchange = loadhash;
-		function loadhash(event){
-			const hash = window.location.hash;
-			if (hash){
+			window.onload = loadhash;
+			window.onhashchange = loadhash;
+			function loadhash(e) {
+				const hash = window.location.hash;
+				if (!hash || !/^#[-A-Za-z0-9]+$/.test(hash)) {
+					console.log("hash is null or invalid", window.location);
+					return;
+				}
 				const tobeset = document.querySelector('a[href$="' + hash + '"]');
-				if (tobeset){
-					settab(tobeset);
+				if (!tobeset) {
+					console.error("anchor not found", hash);
+					return;
+				}
+				const filename = (function settab(target) {
+					const tabs = [...document.getElementsByClassName("tab")];
+					tabs.forEach(function (tab) {
+						tab.style.borderStyle = "outset";
+						tab.style.color = "blue";
+					});
+					const filefromhash = target.href.split("#").pop();
+					if (filefromhash) {
+						target.style.borderStyle = "inset";
+						target.style.color = "grey";
+						return "./" + filefromhash + ".txt";
+					}
+				})(tobeset);
+				start(filename);
+			}
+			let nextbtn = document.getElementById("next");
+			let stopbtn = document.getElementById("stop");
+			function start(filename) {
+				if (!filename) return;
+				const helpbtn = document.getElementById("helpbtn");
+				helpbtn.classList.remove("pulse");
+				nextbtn = cleanbtn(nextbtn);
+				stopbtn = cleanbtn(stopbtn);
+				const xhr = new XMLHttpRequest();
+				xhr.open("GET", filename, true);
+				xhr.onload = procdata.bind(xhr, filename);
+				xhr.send(null);
+			}
+			function cleanbtn(btn) {
+				const newbtn = btn.cloneNode(true);
+				btn.parentNode.replaceChild(newbtn, btn);
+				return newbtn;
+			}
+			function procdata(filename) {
+				if (this.readyState != 4 || this.status != 200) return;
+				const qa = [];
+				const used = [];
+				const lines = this.responseText.split("\n");
+				lines.forEach(function (line) {
+					let pair = line.split("|");
+					if (pair.length == 2) {
+						qa.push(pair);
+					} else {
+						if (line.length > 0) console.log("[not a qa] " + line);
+					}
+				});
+				(function shuffle(array) {
+					let i = array.length;
+					while (1 < i--) {
+						const j = Math.floor(Math.random() * (i + 1));
+						[array[i], array[j]] = [array[j], array[i]];
+					}
+				})(qa);
+				const totalnum = qa.length;
+				nextbtn.removeEventListener("click", nextListener);
+				nextbtn.addEventListener("click", nextListener);
+				nextbtn.classList.remove("collapse");
+				stopbtn.removeEventListener("click", stopListener);
+				stopbtn.addEventListener("click", stopListener);
+				stopbtn.classList.remove("collapse");
+				nextListener();
+				return;
+				function nextListener(e) {
+					nextbtn.classList.remove("pulse");
+					if (qa.length > 0) {
+						const q_array = qa.pop();
+						used.push(q_array[1] + " = " + q_array[0]);
+						const pos = totalnum - qa.length;
+						const q = document.getElementById("q");
+						q.innerHTML =
+							`<button id='q_txt'>${q_array[1]}</button>` +
+							"<button id='a_pron'>🔊</button>" +
+							"<span id='progressbar'>" +
+							` <progress max=${totalnum} value=${pos}></progress>` +
+							` <span id='pos'>${pos}/${totalnum}</span>` +
+							"</span>" +
+							`<p id='a_txt' class='collapse'>${q_array[0]}</p>`;
+						const a_pron = document.getElementById("a_pron");
+						a_pron.addEventListener("click", function (e) {
+							const a_pron_rate =
+								parseFloat(this.getAttribute("pronrate")) || 1.0;
+							const u = new SpeechSynthesisUtterance();
+							u.lang = "en-US";
+							u.text = q_array[0];
+							u.rate = a_pron_rate;
+							speechSynthesis.speak(u);
+							this.setAttribute("pronrate", a_pron_rate * 0.6);
+							const last_used = used.pop();
+							used.push("🔊" + last_used);
+						});
+						const q_txt = document.getElementById("q_txt");
+						q_txt.addEventListener("click", function (e) {
+							q_txt.classList.remove("pulse");
+							const a_txt = document.getElementById("a_txt");
+							a_txt.classList.toggle("collapse");
+							nextbtn.classList.add("pulse");
+							const last_used = used.pop();
+							used.push("<strong>" + last_used + "</strong>");
+						});
+						q_txt.classList.add("pulse");
+					} else {
+						// show the result
+						const q = document.getElementById("q");
+						q.innerHTML =
+							`<p>🎉 ${used.length}/${totalnum}</p>` +
+							"<div>" +
+							used.join("<br />") +
+							"</div>";
+						stopbtn.classList.add("collapse");
+						stopbtn.removeEventListener("click", stopListener);
+						nextbtn.removeEventListener("click", nextListener);
+						const retryListener = function (e) {
+							nextbtn.removeEventListener("click", retryListener);
+							start(filename);
+						};
+						nextbtn.addEventListener("click", retryListener);
+					}
+				}
+				function stopListener(e) {
+					while (qa.pop());
+					nextListener();
 				}
 			}
-		}
-		let fname="";
-		function settab(tobeset){
-			fname="./" + tobeset.href.split("#").pop() + ".txt";
-			const tabs = Array.from(document.getElementsByClassName("tab"));
-			tabs.forEach(function(tab){
-				tab.style.borderStyle="outset";
-				tab.style.color="blue";
+			const helpdiv = document.getElementById("helpdiv");
+			helpdiv.addEventListener("click", function (e) {
+				const helptxt = document.getElementById("helptxt");
+				helptxt.classList.toggle("collapse");
 			});
-			tobeset.style.borderStyle="inset";
-			tobeset.style.color="grey";
-			start();
-		}
-		let datafile = null;
-		let nextListener = null;
-		let stopListener = null;
-		const q = document.getElementById("q");
-		const helpdiv = document.getElementById("helpdiv");
-		const helpbtn = document.getElementById("helpbtn");
-		const helptxt = document.getElementById("helptxt");
-		helpdiv.addEventListener("click", function(e){
-			helptxt.classList.toggle("collapse");
-		});
-		let nextbtn = document.getElementById("next");
-		let stopbtn = document.getElementById("stop");
-		function start(){
-			helpbtn.classList.remove("pulse");
-			clearHandlers(nextbtn);
-			nextbtn = document.getElementById("next");
-			clearHandlers(stopbtn);
-			stopbtn = document.getElementById("stop");
-			datafile = new XMLHttpRequest();
-			datafile.open("GET", fname, true);
-			datafile.onload = procdata;
-			datafile.send(null);
-		}
-		function procdata(){
-			if (datafile.readyState != 4 || datafile.status != 200)
-				return;
-			let qa = [];
-			let used = [];
-			let lines = datafile.responseText.split("\n");
-			lines.forEach(function(line){
-				let pair = line.split("|");
-				if (pair.length == 2){
-					qa.push(pair);
-				} else {
-					if(line.length > 0)
-						console.log("[not a qa] " + line);
-				}
-			});
-			let totalnum = qa.length;
-			qa.sort(function(a, b){
-				return Math.random() - 0.5;
-			});
-			let showQ = function(q_array){
-				used.push(q_array[1] + " = " + q_array[0]);
-				let pos = totalnum - qa.length;
-				q.innerHTML = "<button id='q_txt'>"
-					+ q_array[1]
-					+ "</button>"
-					+ "<button id='a_pron'>🔊</button>"
-					+ "<span id='progressbar'>"
-					+ " <progress max=" + totalnum + " value=" + pos + "></progress>"
-					+ " <span id='pos'>" + pos + "/" + totalnum + "</span>"
-					+ "</span>"
-					+ "<p id='a_txt' class='collapse'>"
-					+ q_array[0]
-					+ "</p>";
-				let a_pron_rate = 1.0;
-				let a_pron = document.getElementById("a_pron");
-				a_pron.addEventListener("click",function(e){
-					let u = new SpeechSynthesisUtterance();
-					u.lang = "en-US";
-					u.text = q_array[0];
-					u.rate = a_pron_rate;
-					speechSynthesis.speak(u);
-					a_pron_rate *= 0.6;
-					let last_used = used.pop();
-					used.push("🔊" + last_used);
-				});
-				let q_txt = document.getElementById("q_txt");
-				q_txt.addEventListener("click", function(e){
-					q_txt.classList.remove("pulse");
-					let a_txt = document.getElementById("a_txt");
-					a_txt.classList.toggle("collapse");
-					nextbtn.classList.add("pulse");
-					let last_used = used.pop();
-					used.push("<strong>" + last_used + "</strong>");
-				});
-				q_txt.classList.add("pulse");
-			};
-			let showResult = function(){
-				q.innerHTML = "<p>🎉 " + used.length + "/" + totalnum + "</p>"
-					+ "<div>" + used.join("<br />") + "</div>";
-				stopbtn.classList.add("collapse");
-				stopbtn.removeEventListener("click", stopListener);
-				nextbtn.removeEventListener("click", nextListener);
-				let retryListener =  function(e){
-					nextbtn.removeEventListener("click", retryListener);
-					start();
-				};
-				nextbtn.addEventListener("click", retryListener);
-			};
-			nextbtn.removeEventListener("click", nextListener);
-			nextListener = function(e){
-				nextbtn.classList.remove("pulse");
-				if (qa.length > 0)
-					showQ(qa.pop());
-				else
-					showResult();
-			};
-			nextbtn.addEventListener("click", nextListener);
-			nextbtn.classList.remove("collapse");
-			stopbtn.removeEventListener("click", stopListener);
-			stopListener = function(e){
-				qa = [];
-				nextListener();
-			};
-			stopbtn.addEventListener("click", stopListener);
-			stopbtn.classList.remove("collapse");
-			nextListener();
-		}
-		function clearHandlers(btn){
-			let newbtn = btn.cloneNode(true);
-			btn.parentNode.replaceChild(newbtn, btn);
-		}
 		</script>
 	</body>
 </html>
