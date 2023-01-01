@@ -209,19 +209,39 @@
 								"</span>" +
 								`<p id='answerDiv' class='collapse'>${currentPair[0]}</p>`;
 
-							// speech (does not toggle)
+							// toggle speech
 							const speakButton = document.getElementById("speakButton");
 							speakButton.addEventListener("click", function (e) {
+								if (window.speechSynthesis.speaking) {
+									if (window.speechSynthesis.paused) {
+										window.speechSynthesis.resume();
+									} else {
+										window.speechSynthesis.pause();
+									}
+									return;
+								}
+
 								const speakRate =
 									parseFloat(this.getAttribute("speakRate")) || 1.0;
 								const u = new SpeechSynthesisUtterance();
 								u.lang = "en-US";
 								u.text = currentPair[0];
 								u.rate = speakRate;
-								speechSynthesis.speak(u);
-								// gradually slower
+								u.onstart = pauseEmoji;
+								u.onpause = startEmoji;
+								u.onresume = pauseEmoji;
+								u.onend = startEmoji;
+								window.speechSynthesis.speak(u);
+								// slower next time
 								this.setAttribute("speakRate", speakRate * 0.6);
 								results.push("🔊" + results.pop());
+
+								function pauseEmoji() {
+									speakButton.innerText = "🔇";
+								}
+								function startEmoji() {
+									speakButton.innerText = "🔊";
+								}
 							});
 
 							// toggle answer
