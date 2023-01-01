@@ -93,16 +93,23 @@
 			</div>
 		</div>
 		<script>
+			const helpdiv = document.getElementById("helpdiv");
+			helpdiv.addEventListener("click", function (e) {
+				const helptxt = document.getElementById("helptxt");
+				helptxt.classList.toggle("collapse");
+			});
+
 			window.onload = loadhash;
 			window.onhashchange = loadhash;
 			function loadhash(e) {
 				const hash = window.location.hash;
+				// includes the beginning #
 				if (!hash || !/^#[-A-Za-z0-9]+$/.test(hash)) {
 					console.log("hash is null or invalid", window.location);
 					return;
 				}
-				const tobeset = document.querySelector('a[href$="' + hash + '"]');
-				if (!tobeset) {
+				const target = document.querySelector('a[href$="' + hash + '"]');
+				if (!target) {
 					console.error("anchor not found", hash);
 					return;
 				}
@@ -111,126 +118,134 @@
 					tab.style.borderStyle = "outset";
 					tab.style.color = "blue";
 				});
-				const filefromhash = tobeset.href.split("#").pop();
+				const filefromhash = target.href.split("#").pop();
 				if (filefromhash) {
-					tobeset.style.borderStyle = "inset";
-					tobeset.style.color = "grey";
+					target.style.borderStyle = "inset";
+					target.style.color = "grey";
 					start("./" + filefromhash + ".txt");
 				}
 			}
-			let nextbtn = document.getElementById("next");
-			let stopbtn = document.getElementById("stop");
 			function start(filename) {
 				if (!filename) return;
+				// refresh the buttons
 				const helpbtn = document.getElementById("helpbtn");
 				helpbtn.classList.remove("pulse");
+				// cannot be const because they will be replaced
+				let nextbtn = document.getElementById("next");
+				let stopbtn = document.getElementById("stop");
 				nextbtn = cleanbtn(nextbtn);
 				stopbtn = cleanbtn(stopbtn);
+				// could be replaced with fetch
 				const xhr = new XMLHttpRequest();
 				xhr.open("GET", filename, true);
 				xhr.onload = procdata.bind(xhr, filename);
 				xhr.send(null);
-			}
-			function cleanbtn(btn) {
-				const newbtn = btn.cloneNode(true);
-				btn.parentNode.replaceChild(newbtn, btn);
-				return newbtn;
-			}
-			function procdata(filename) {
-				if (this.readyState != 4 || this.status != 200) return;
-				const qa = [];
-				const used = [];
-				const lines = this.responseText.split("\n");
-				lines.forEach(function (line) {
-					let pair = line.split("|");
-					if (pair.length == 2) {
-						qa.push(pair);
-					} else {
-						if (line.length > 0) console.log("[not a qa] " + line);
-					}
-				});
-				(function shuffle(array) {
-					let i = array.length;
-					while (1 < i--) {
-						const j = Math.floor(Math.random() * (i + 1));
-						[array[i], array[j]] = [array[j], array[i]];
-					}
-				})(qa);
-				const totalnum = qa.length;
-				nextbtn.removeEventListener("click", nextListener);
-				nextbtn.addEventListener("click", nextListener);
-				nextbtn.classList.remove("collapse");
-				stopbtn.removeEventListener("click", stopListener);
-				stopbtn.addEventListener("click", stopListener);
-				stopbtn.classList.remove("collapse");
-				nextListener();
 				return;
-				function nextListener(e) {
-					nextbtn.classList.remove("pulse");
-					if (qa.length > 0) {
-						const q_array = qa.pop();
-						used.push(q_array[1] + " = " + q_array[0]);
-						const pos = totalnum - qa.length;
-						const q = document.getElementById("q");
-						q.innerHTML =
-							`<button id='q_txt'>${q_array[1]}</button>` +
-							"<button id='a_pron'>🔊</button>" +
-							"<span id='progressbar'>" +
-							` <progress max=${totalnum} value=${pos}></progress>` +
-							` <span id='pos'>${pos}/${totalnum}</span>` +
-							"</span>" +
-							`<p id='a_txt' class='collapse'>${q_array[0]}</p>`;
-						const a_pron = document.getElementById("a_pron");
-						a_pron.addEventListener("click", function (e) {
-							const a_pron_rate =
-								parseFloat(this.getAttribute("pronrate")) || 1.0;
-							const u = new SpeechSynthesisUtterance();
-							u.lang = "en-US";
-							u.text = q_array[0];
-							u.rate = a_pron_rate;
-							speechSynthesis.speak(u);
-							this.setAttribute("pronrate", a_pron_rate * 0.6);
-							const last_used = used.pop();
-							used.push("🔊" + last_used);
-						});
-						const q_txt = document.getElementById("q_txt");
-						q_txt.addEventListener("click", function (e) {
-							q_txt.classList.remove("pulse");
-							const a_txt = document.getElementById("a_txt");
-							a_txt.classList.toggle("collapse");
-							nextbtn.classList.add("pulse");
-							const last_used = used.pop();
-							used.push("<strong>" + last_used + "</strong>");
-						});
-						q_txt.classList.add("pulse");
-					} else {
-						// show the result
-						const q = document.getElementById("q");
-						q.innerHTML =
-							`<p>🎉 ${used.length}/${totalnum}</p>` +
-							"<div>" +
-							used.join("<br />") +
-							"</div>";
-						stopbtn.classList.add("collapse");
-						stopbtn.removeEventListener("click", stopListener);
-						nextbtn.removeEventListener("click", nextListener);
-						const retryListener = function (e) {
+				// clone without listeners
+				function cleanbtn(btn) {
+					const newbtn = btn.cloneNode(true);
+					btn.parentNode.replaceChild(newbtn, btn);
+					return newbtn;
+				}
+				function procdata(filename) {
+					if (this.readyState != 4 || this.status != 200) return;
+					// "a1|q1\na2|q2" -> [["a1", "q1"], ["a2", "q2"]]
+					const qa = [];
+					const lines = this.responseText.split("\n");
+					lines.forEach(function (line) {
+						const pair = line.split("|");
+						if (pair.length == 2) {
+							qa.push(pair);
+						} else {
+							if (line.length > 0) console.log("[not a qa] " + line);
+						}
+					});
+					// Fisher-Yates
+					(function shuffle(array) {
+						let i = array.length;
+						while (1 < i--) {
+							const j = Math.floor(Math.random() * (i + 1));
+							[array[i], array[j]] = [array[j], array[i]];
+						}
+					})(qa);
+					// qa.length will decrease later
+					const totalnum = qa.length;
+					const results = [];
+					// buttons have no listeners yet
+					nextbtn.addEventListener("click", nextListener);
+					nextbtn.classList.remove("collapse");
+					stopbtn.addEventListener("click", stopListener);
+					stopbtn.classList.remove("collapse");
+					// start!
+					nextListener();
+					return;
+					function nextListener(e) {
+						nextbtn.classList.remove("pulse");
+						if (qa.length > 0) {
+							const q_array = qa.pop();
+							results.push(q_array[1] + " = " + q_array[0]);
+							// progressbar and quiz
+							const pos = totalnum - qa.length;
+							const q = document.getElementById("q");
+							q.innerHTML =
+								`<button id='q_txt'>${q_array[1]}</button>` +
+								"<button id='a_pron'>🔊</button>" +
+								"<span id='progressbar'>" +
+								` <progress max=${totalnum} value=${pos}></progress>` +
+								` <span id='pos'>${pos}/${totalnum}</span>` +
+								"</span>" +
+								`<p id='a_txt' class='collapse'>${q_array[0]}</p>`;
+							// speech button
+							const a_pron = document.getElementById("a_pron");
+							a_pron.addEventListener("click", function (e) {
+								const a_pron_rate =
+									parseFloat(this.getAttribute("pronrate")) || 1.0;
+								const u = new SpeechSynthesisUtterance();
+								u.lang = "en-US";
+								u.text = q_array[0];
+								u.rate = a_pron_rate;
+								speechSynthesis.speak(u);
+								// gradually slower
+								this.setAttribute("pronrate", a_pron_rate * 0.6);
+								results.push("🔊" + results.pop());
+							});
+							// toggle answer
+							const q_txt = document.getElementById("q_txt");
+							q_txt.addEventListener("click", function (e) {
+								this.classList.remove("pulse");
+								const a_txt = document.getElementById("a_txt");
+								a_txt.classList.toggle("collapse");
+								nextbtn.classList.add("pulse");
+								results.push("<strong>" + results.pop() + "</strong>");
+							});
+							q_txt.classList.add("pulse");
+						} else {
+							// result
+							const q = document.getElementById("q");
+							q.innerHTML =
+								`<p>🎉 ${results.length}/${totalnum}</p>` +
+								"<div>" +
+								results.join("<br />") +
+								"</div>";
+							// hide stopbtn
+							stopbtn.classList.add("collapse");
+							stopbtn.removeEventListener("click", stopListener);
+							// nextbtn to restart
+							nextbtn.removeEventListener("click", nextListener);
+							nextbtn.addEventListener("click", retryListener);
+						}
+						return;
+						function retryListener (e) {
 							nextbtn.removeEventListener("click", retryListener);
 							start(filename);
-						};
-						nextbtn.addEventListener("click", retryListener);
+						}
+					}
+					function stopListener(e) {
+						while (qa.pop()); // empty
+						nextListener(); // result
 					}
 				}
-				function stopListener(e) {
-					while (qa.pop());
-					nextListener();
-				}
 			}
-			const helpdiv = document.getElementById("helpdiv");
-			helpdiv.addEventListener("click", function (e) {
-				const helptxt = document.getElementById("helptxt");
-				helptxt.classList.toggle("collapse");
-			});
 		</script>
 	</body>
 </html>
