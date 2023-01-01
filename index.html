@@ -19,36 +19,36 @@
 			button {
 				font-size: 200%;
 			}
-			#q_txt {
+			#toggleButton {
 				display: block;
 				width: 100%;
 			}
-			#a_pron {
+			#speakButton {
 				width: 45%;
 			}
 			progress {
 				width: 45%;
 			}
-			#progressbar {
+			#progressSpan {
 				position: relative;
 			}
-			#pos {
+			#current {
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
 			}
-			#a_txt {
+			#answerDiv {
 				opacity: 1;
 				transition: all 1s ease-in-out 0s;
 			}
 			.collapse {
 				opacity: 0 !important;
 			}
-			#next {
+			#nextButton {
 				width: 100%;
 			}
-			#helpdiv * {
+			#helpDiv * {
 				display: inline-block;
 			}
 			strong {
@@ -80,12 +80,14 @@
 			<a class="tab" href="#3-pp-146-147">中3教146</a>
 			<a class="tab" href="#hjswords">中基礎</a>
 		</p>
-		<p id="q">勉強するんですね！ 始めましょう！</p>
-		<button id="next" class="collapse">⏭️</button>
-		<button id="stop" class="collapse">⏹️</button>
-		<div id="helpdiv">
-			<button id="helpbtn" class="pulse">❔</button>
-			<div id="helptxt" class="collapse">
+		<div id="quizDiv">
+			<p>勉強するんですね！ 始めましょう！</p>
+		</div>
+		<button id="nextButton" class="collapse">⏭️</button>
+		<button id="stopButton" class="collapse">⏹️</button>
+		<div id="helpDiv">
+			<button id="helpButton" class="pulse">❔</button>
+			<div id="helpMessage" class="collapse">
 				最初は、上のボタンで範囲を選んでください。<br />
 				問題文をタップすると答えを表示できます。(終わりにも一覧できます)<br />
 				🔊でヒントとして音声を出せます。(2回目以降徐々に遅くなります)<br />
@@ -93,15 +95,22 @@
 			</div>
 		</div>
 		<script>
-			const helpdiv = document.getElementById("helpdiv");
-			helpdiv.addEventListener("click", function (e) {
-				const helptxt = document.getElementById("helptxt");
-				helptxt.classList.toggle("collapse");
+			const helpDiv = document.getElementById("helpDiv");
+			helpDiv.addEventListener("click", function (e) {
+				const helpMessage = document.getElementById("helpMessage");
+				helpMessage.classList.toggle("collapse");
 			});
 
-			window.onload = loadhash;
-			window.onhashchange = loadhash;
-			function loadhash(e) {
+			window.onload = loadHash;
+			window.onhashchange = loadHash;
+			function loadHash(e) {
+				// reset tabs anyways
+				const tabs = [...document.getElementsByClassName("tab")];
+				tabs.forEach(function (tab) {
+					tab.style.borderStyle = "outset";
+					tab.style.color = "blue";
+				});
+
 				const hash = window.location.hash;
 				// includes the beginning #
 				if (!hash || !/^#[-A-Za-z0-9]+$/.test(hash)) {
@@ -113,51 +122,51 @@
 					console.error("anchor not found", hash);
 					return;
 				}
-				const tabs = [...document.getElementsByClassName("tab")];
-				tabs.forEach(function (tab) {
-					tab.style.borderStyle = "outset";
-					tab.style.color = "blue";
-				});
-				const filefromhash = target.href.split("#").pop();
-				if (filefromhash) {
+				const fileName = target.href.split("#").pop();
+				if (fileName) {
 					target.style.borderStyle = "inset";
 					target.style.color = "grey";
-					start("./" + filefromhash + ".txt");
+					start("./" + fileName + ".txt");
 				}
 			}
-			function start(filename) {
-				if (!filename) return;
+
+			function start(url) {
+				if (!url) return;
+
 				// refresh the buttons
-				const helpbtn = document.getElementById("helpbtn");
-				helpbtn.classList.remove("pulse");
+				const helpButton = document.getElementById("helpButton");
+				helpButton.classList.remove("pulse");
 				// cannot be const because they will be replaced
-				let nextbtn = document.getElementById("next");
-				let stopbtn = document.getElementById("stop");
-				nextbtn = cleanbtn(nextbtn);
-				stopbtn = cleanbtn(stopbtn);
+				let nextButton = document.getElementById("nextButton");
+				let stopButton = document.getElementById("stopButton");
+				nextButton = cleanButton(nextButton);
+				stopButton = cleanButton(stopButton);
+
 				// could be replaced with fetch
 				const xhr = new XMLHttpRequest();
-				xhr.open("GET", filename, true);
-				xhr.onload = procdata.bind(xhr, filename);
+				xhr.open("GET", url, true);
+				xhr.onload = onLoadListener.bind(xhr, url);
 				xhr.send(null);
-				return;
+
 				// clone without listeners
-				function cleanbtn(btn) {
-					const newbtn = btn.cloneNode(true);
-					btn.parentNode.replaceChild(newbtn, btn);
-					return newbtn;
+				function cleanButton(button) {
+					const cloned = button.cloneNode(true);
+					button.parentNode.replaceChild(cloned, button);
+					return cloned;
 				}
-				function procdata(filename) {
+
+				function onLoadListener(_url) {
 					if (this.readyState != 4 || this.status != 200) return;
+
 					// "a1|q1\na2|q2" -> [["a1", "q1"], ["a2", "q2"]]
-					const qa = [];
+					const quizPairs = [];
 					const lines = this.responseText.split("\n");
 					lines.forEach(function (line) {
 						const pair = line.split("|");
 						if (pair.length == 2) {
-							qa.push(pair);
+							quizPairs.push(pair);
 						} else {
-							if (line.length > 0) console.log("[not a qa] " + line);
+							if (line.length > 0) console.log("[not a pair] " + line);
 						}
 					});
 					// Fisher-Yates
@@ -167,81 +176,89 @@
 							const j = Math.floor(Math.random() * (i + 1));
 							[array[i], array[j]] = [array[j], array[i]];
 						}
-					})(qa);
-					// qa.length will decrease later
-					const totalnum = qa.length;
+					})(quizPairs);
+					// quizPairs.length will decrease later
+					const progressMax = quizPairs.length;
 					const results = [];
+
 					// buttons have no listeners yet
-					nextbtn.addEventListener("click", nextListener);
-					nextbtn.classList.remove("collapse");
-					stopbtn.addEventListener("click", stopListener);
-					stopbtn.classList.remove("collapse");
+					nextButton.addEventListener("click", nextListener);
+					nextButton.classList.remove("collapse");
+					stopButton.addEventListener("click", stopListener);
+					stopButton.classList.remove("collapse");
+
 					// start!
 					nextListener();
-					return;
+
 					function nextListener(e) {
-						nextbtn.classList.remove("pulse");
-						if (qa.length > 0) {
-							const q_array = qa.pop();
-							results.push(q_array[1] + " = " + q_array[0]);
+						nextButton.classList.remove("pulse");
+
+						if (quizPairs.length > 0) {
+							const currentPair = quizPairs.pop();
+							results.push(currentPair[1] + " = " + currentPair[0]);
+
 							// progressbar and quiz
-							const pos = totalnum - qa.length;
-							const q = document.getElementById("q");
-							q.innerHTML =
-								`<button id='q_txt'>${q_array[1]}</button>` +
-								"<button id='a_pron'>🔊</button>" +
-								"<span id='progressbar'>" +
-								` <progress max=${totalnum} value=${pos}></progress>` +
-								` <span id='pos'>${pos}/${totalnum}</span>` +
+							const current = progressMax - quizPairs.length;
+							const quizDiv = document.getElementById("quizDiv");
+							quizDiv.innerHTML =
+								`<button id='toggleButton'>${currentPair[1]}</button>` +
+								"<button id='speakButton'>🔊</button>" +
+								"<span id='progressSpan'>" +
+								` <progress max=${progressMax} value=${current}></progress>` +
+								` <span id='current'>${current}/${progressMax}</span>` +
 								"</span>" +
-								`<p id='a_txt' class='collapse'>${q_array[0]}</p>`;
-							// speech button
-							const a_pron = document.getElementById("a_pron");
-							a_pron.addEventListener("click", function (e) {
-								const a_pron_rate =
-									parseFloat(this.getAttribute("pronrate")) || 1.0;
+								`<p id='answerDiv' class='collapse'>${currentPair[0]}</p>`;
+
+							// speech (does not toggle)
+							const speakButton = document.getElementById("speakButton");
+							speakButton.addEventListener("click", function (e) {
+								const speakRate =
+									parseFloat(this.getAttribute("speakRate")) || 1.0;
 								const u = new SpeechSynthesisUtterance();
 								u.lang = "en-US";
-								u.text = q_array[0];
-								u.rate = a_pron_rate;
+								u.text = currentPair[0];
+								u.rate = speakRate;
 								speechSynthesis.speak(u);
 								// gradually slower
-								this.setAttribute("pronrate", a_pron_rate * 0.6);
+								this.setAttribute("speakRate", speakRate * 0.6);
 								results.push("🔊" + results.pop());
 							});
+
 							// toggle answer
-							const q_txt = document.getElementById("q_txt");
-							q_txt.addEventListener("click", function (e) {
+							const toggleButton = document.getElementById("toggleButton");
+							toggleButton.addEventListener("click", function (e) {
 								this.classList.remove("pulse");
-								const a_txt = document.getElementById("a_txt");
-								a_txt.classList.toggle("collapse");
-								nextbtn.classList.add("pulse");
+								const answerDiv = document.getElementById("answerDiv");
+								answerDiv.classList.toggle("collapse");
+								nextButton.classList.add("pulse");
 								results.push("<strong>" + results.pop() + "</strong>");
 							});
-							q_txt.classList.add("pulse");
+							toggleButton.classList.add("pulse");
 						} else {
 							// result
-							const q = document.getElementById("q");
-							q.innerHTML =
-								`<p>🎉 ${results.length}/${totalnum}</p>` +
+							const quizDiv = document.getElementById("quizDiv");
+							quizDiv.innerHTML =
+								`<p>🎉 ${results.length}/${progressMax}</p>` +
 								"<div>" +
 								results.join("<br />") +
 								"</div>";
-							// hide stopbtn
-							stopbtn.classList.add("collapse");
-							stopbtn.removeEventListener("click", stopListener);
-							// nextbtn to restart
-							nextbtn.removeEventListener("click", nextListener);
-							nextbtn.addEventListener("click", retryListener);
+
+							// hide stopButton
+							stopButton.classList.add("collapse");
+							stopButton.removeEventListener("click", stopListener);
+
+							// nextButton to restart
+							nextButton.removeEventListener("click", nextListener);
+							nextButton.addEventListener("click", retryListener);
 						}
-						return;
-						function retryListener (e) {
-							nextbtn.removeEventListener("click", retryListener);
-							start(filename);
+
+						function retryListener(e) {
+							nextButton.removeEventListener("click", retryListener);
+							start(_url);
 						}
 					}
 					function stopListener(e) {
-						while (qa.pop()); // empty
+						while (quizPairs.pop()); // empty
 						nextListener(); // result
 					}
 				}
