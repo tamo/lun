@@ -233,7 +233,7 @@
 								u.onpause = startEmoji;
 								u.onresume = pauseEmoji;
 								u.onend = startEmoji;
-								synthesis.cancel();
+								synthesis.cancel(); // in case of (!speaking && paused) or bugs
 								synthesis.speak(u);
 								// slower next time
 								this.setAttribute("speakRate", speakRate * 0.6);
