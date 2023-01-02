@@ -32,7 +32,7 @@
 			#progressSpan {
 				position: relative;
 			}
-			#current {
+			#progressRate {
 				position: absolute;
 				top: 50%;
 				left: 50%;
@@ -198,14 +198,14 @@
 							results.push(currentPair[1] + " = " + currentPair[0]);
 
 							// progressbar and quiz
-							const current = progressMax - quizPairs.length;
+							const progressCurrent = progressMax - quizPairs.length;
 							const quizDiv = document.getElementById("quizDiv");
 							quizDiv.innerHTML =
 								`<button id='toggleButton'>${currentPair[1]}</button>` +
 								"<button id='speakButton'>🔊</button>" +
 								"<span id='progressSpan'>" +
-								` <progress max=${progressMax} value=${current}></progress>` +
-								` <span id='current'>${current}/${progressMax}</span>` +
+								` <progress max=${progressMax} value=${progressCurrent}></progress>` +
+								` <span id='progressRate'>${progressCurrent}/${progressMax}</span>` +
 								"</span>" +
 								`<p id='answerDiv' class='collapse'>${currentPair[0]}</p>`;
 
