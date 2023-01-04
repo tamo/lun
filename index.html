@@ -53,6 +53,10 @@
 			}
 			#nextButton {
 				width: 100%;
+				display: none;
+			}
+			#stopButton {
+				display: none;
 			}
 			#helpDiv * {
 				display: inline-block;
@@ -98,8 +102,8 @@
 			<p id="answerDiv" class="zeroOpacity"></p>
 		</div>
 		<div id="resultsDiv"></div>
-		<button id="nextButton" class="zeroOpacity">⏭️</button>
-		<button id="stopButton" class="zeroOpacity">⏹️</button>
+		<button id="nextButton">⏭️</button>
+		<button id="stopButton">⏹️</button>
 		<div id="helpDiv">
 			<button id="helpButton" class="pulse">❔</button>
 			<div id="helpMessage" class="zeroOpacity">
@@ -209,8 +213,8 @@
 
 			function nextListener(e) {
 				nextButton.classList.remove("pulse");
-				nextButton.classList.remove("zeroOpacity");
-				stopButton.classList.remove("zeroOpacity");
+				nextButton.style.display = "block";
+				stopButton.style.display = "block";
 				synthesis.cancel(); // in case a speech is in progress
 
 				if (quizPairs.length > 0) {
@@ -249,7 +253,7 @@
 					nextButton.addEventListener("click", function () {
 						window.location.reload(); // no need to removeEventListener
 					});
-					stopButton.classList.add("zeroOpacity");
+					stopButton.style.display = "none";
 				}
 			}
 
