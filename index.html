@@ -16,6 +16,9 @@
 				color: blue;
 				text-decoration: none;
 			}
+			#quizDiv {
+				display: none;
+			}
 			button {
 				font-size: 200%;
 			}
@@ -42,7 +45,10 @@
 				opacity: 1;
 				transition: all 1s ease-in-out 0s;
 			}
-			.collapse {
+			.noTransition {
+				transition: none !important;
+			}
+			.zeroOpacity {
 				opacity: 0 !important;
 			}
 			#nextButton {
@@ -80,15 +86,22 @@
 			<a class="tab" href="#3-pp-146-147">中3教146</a>
 			<a class="tab" href="#hjswords">中基礎</a>
 		</p>
+		<p id="messageDiv">勉強するんですね！ 始めましょう！</p>
 		<div id="quizDiv">
-			<p>勉強するんですね！ 始めましょう！</p>
+			<button id="toggleButton"></button>
+			<button id="speakButton">🔊</button>
+			<span id="progressSpan">
+				<progress id="progressBar" max="0" value="0"></progress>
+				<span id="progressRate"></span>
+			</span>
+			<p id="answerDiv" class="zeroOpacity"></p>
 		</div>
 		<div id="resultsDiv"></div>
-		<button id="nextButton" class="collapse">⏭️</button>
-		<button id="stopButton" class="collapse">⏹️</button>
+		<button id="nextButton" class="zeroOpacity">⏭️</button>
+		<button id="stopButton" class="zeroOpacity">⏹️</button>
 		<div id="helpDiv">
 			<button id="helpButton" class="pulse">❔</button>
-			<div id="helpMessage" class="collapse">
+			<div id="helpMessage" class="zeroOpacity">
 				最初は、上のボタンで範囲を選んでください。<br />
 				問題文をタップすると答えを表示できます。(終わりにも一覧できます)<br />
 				🔊でヒントとして音声を出せます。(2回目以降徐々に遅くなります)<br />
@@ -96,11 +109,32 @@
 			</div>
 		</div>
 		<script>
+			const messageDiv = document.getElementById("messageDiv");
+			const quizDiv = document.getElementById("quizDiv");
+			const toggleButton = document.getElementById("toggleButton");
+			const speakButton = document.getElementById("speakButton");
+			const progressBar = document.getElementById("progressBar");
+			const progressRate = document.getElementById("progressRate");
+			const answerDiv = document.getElementById("answerDiv");
+			const resultsDiv = document.getElementById("resultsDiv");
+			const nextButton = document.getElementById("nextButton");
+			const stopButton = document.getElementById("stopButton");
 			const helpDiv = document.getElementById("helpDiv");
-			helpDiv.addEventListener("click", function (e) {
-				const helpMessage = document.getElementById("helpMessage");
-				helpMessage.classList.toggle("collapse");
+			const helpButton = document.getElementById("helpButton");
+			const helpMessage = document.getElementById("helpMessage");
+
+			toggleButton.addEventListener("click", toggleListener);
+			speakButton.addEventListener("click", speakListener);
+			nextButton.addEventListener("click", nextListener);
+			stopButton.addEventListener("click", function (e) {
+				while (quizPairs.pop()); // empty
+				nextListener(); // result
 			});
+			helpDiv.addEventListener("click", function (e) {
+				helpMessage.classList.toggle("zeroOpacity");
+			});
+
+			const synthesis = window.speechSynthesis;
 
 			window.onload = loadHash;
 			window.onhashchange = loadHash;
@@ -127,34 +161,34 @@
 				if (fileName) {
 					target.style.borderStyle = "inset";
 					target.style.color = "grey";
-					loadUrl("./" + fileName + ".txt");
+					// could be replaced with fetch
+					const xhr = new XMLHttpRequest();
+					xhr.open("GET", "./" + fileName + ".txt", true);
+					xhr.onload = onLoadListener;
+					xhr.send(null);
 				}
 			}
 
-			function loadUrl(url) {
-				// could be replaced with fetch
-				const xhr = new XMLHttpRequest();
-				xhr.open("GET", url, true);
-				xhr.onload = onLoadListener;
-				xhr.send(null);
-			}
-
+			const quizPairs = [];
+			let progressMax = 0;
 			function onLoadListener() {
-				const helpButton = document.getElementById("helpButton");
 				helpButton.classList.remove("pulse");
+				messageDiv.innerText = "";
+				resultsDiv.innerHTML = "";
+				resultsDiv.style.display = "none";
 
 				// this is an xhr
 				if (this.readyState != 4 || this.status != 200) return;
 
 				// "a1|q1\na2|q2" -> [["a1", "q1"], ["a2", "q2"]]
-				const quizPairs = [];
+				while (quizPairs.pop()); // empty
 				const lines = this.responseText.split("\n");
 				lines.forEach(function (line) {
 					const pair = line.split("|");
 					if (pair.length == 2) {
 						quizPairs.push(pair);
-					} else {
-						if (line.length > 0) console.log("[not a pair] " + line);
+					} else if (line.length > 0) {
+						console.log("[not a pair]", line);
 					}
 				});
 				// Fisher-Yates
@@ -166,133 +200,106 @@
 					}
 				})(quizPairs);
 				// quizPairs.length will decrease later
-				const progressMax = quizPairs.length;
-
-				const resultsDiv = document.getElementById("resultsDiv");
-				resultsDiv.innerHTML = "";
-				//resultsDiv.style.display = "none";
-
-				// wipe out old listeners and set new ones
-				cleanButton(document.getElementById("nextButton"));
-				cleanButton(document.getElementById("stopButton"));
-				function cleanButton(button) {
-					const cloned = button.cloneNode(true);
-					button.parentNode.replaceChild(cloned, button);
-				}
-				const nextButton = document.getElementById("nextButton");
-				const stopButton = document.getElementById("stopButton");
-				nextButton.classList.remove("collapse");
-				stopButton.classList.remove("collapse");
-				nextButton.addEventListener("click", nextListener);
-				stopButton.addEventListener("click", function (e) {
-					while (quizPairs.pop()); // empty
-					nextListener(); // result
-				});
+				progressMax = quizPairs.length;
 
 				// start!
 				nextListener();
+			}
 
-				function nextListener(e) {
-					nextButton.classList.remove("pulse");
-					window.speechSynthesis.cancel(); // in case a speech is in progress
+			function nextListener(e) {
+				nextButton.classList.remove("pulse");
+				nextButton.classList.remove("zeroOpacity");
+				stopButton.classList.remove("zeroOpacity");
+				synthesis.cancel(); // in case a speech is in progress
 
-					const quizDiv = document.getElementById("quizDiv");
-					if (quizPairs.length > 0) {
-						const currentPair = quizPairs.pop();
-						const progressCurrent = progressMax - quizPairs.length;
+				if (quizPairs.length > 0) {
+					const currentPair = quizPairs.pop();
+					const progressCurrent = progressMax - quizPairs.length;
 
-						const result = document.createElement("span");
-						result.innerText = `(${progressCurrent}) ${currentPair[1]} = ${currentPair[0]}`;
-						resultsDiv.appendChild(document.createElement("br"));
-						resultsDiv.appendChild(document.createElement("br"));
-						resultsDiv.appendChild(result);
+					const result = document.createElement("span");
+					result.innerText = `(${progressCurrent}) ${currentPair[1]} = ${currentPair[0]}`;
+					resultsDiv.appendChild(document.createElement("br"));
+					resultsDiv.appendChild(document.createElement("br"));
+					resultsDiv.appendChild(result);
 
-						// progressbar and quiz
-						quizDiv.innerHTML =
-							"<button id='toggleButton'></button>" +
-							"<button id='speakButton'>🔊</button>" +
-							"<span id='progressSpan'>" +
-							` <progress max=${progressMax} value=${progressCurrent}></progress>` +
-							` <span id='progressRate'>${progressCurrent}/${progressMax}</span>` +
-							"</span>" +
-							"<p id='answerDiv' class='collapse'></p>";
-						// currentPair can have special chars like <>"'
-						const toggleButton = document.getElementById("toggleButton");
-						toggleButton.addEventListener("click", toggleListener);
-						toggleButton.innerText = currentPair[1];
-						toggleButton.classList.add("pulse");
-						const speakButton = document.getElementById("speakButton");
-						speakButton.addEventListener("click", speakListener);
-						speakButton.setAttribute("text", currentPair[0]);
-						const answerDiv = document.getElementById("answerDiv");
-						answerDiv.innerText = currentPair[0];
-					} else {
-						// length/3 because of br
-						quizDiv.innerHTML = `<p>🎉 ${resultsDiv.children.length/3}/${progressMax}</p>`;
-						resultsDiv.style.display = "block";
-						nextButton.removeEventListener("click", nextListener);
-						nextButton.addEventListener("click", function () {
-							window.location.reload(); // no need to removeEventListener
-						});
-						stopButton.classList.add("collapse");
-					}
+					// progressbar and quiz
+					quizDiv.style.display = "block";
+					// currentPair can have special chars like <>"'
+					toggleButton.innerText = currentPair[1];
+					toggleButton.classList.add("pulse");
+					speakButton.innerText = "🔊";
+					speakButton.text = currentPair[0];
+					progressBar.max = progressMax;
+					progressBar.value = progressCurrent;
+					progressRate.innerText = `${progressCurrent}/${progressMax}`;
+					answerDiv.classList.add("noTransition");
+					answerDiv.classList.add("zeroOpacity");
+					answerDiv.innerText = currentPair[0];
+					answerDiv.offsetHeight; // activate the change before removing noTransition
+					answerDiv.classList.remove("noTransition");
+				} else {
+					// length/3 because of br
+					messageDiv.innerText = `🎉 ${
+						resultsDiv.children.length / 3
+					}/${progressMax}`;
+					quizDiv.style.display = "none";
+					resultsDiv.style.display = "block";
+					nextButton.removeEventListener("click", nextListener);
+					nextButton.addEventListener("click", function () {
+						window.location.reload(); // no need to removeEventListener
+					});
+					stopButton.classList.add("zeroOpacity");
 				}
+			}
 
-				function speakListener(e) {
-					const synthesis = window.speechSynthesis;
-					if (synthesis.speaking) {
-						if (synthesis.paused) {
-							synthesis.resume();
-						} else {
-							synthesis.pause();
-						}
-						return;
-					}
-
-					// this is a button
-					const textAttribute = this.getAttribute("text");
-					const speakRateAttribute =
-						parseFloat(this.getAttribute("speakRate")) || 1.0;
-					speakText(textAttribute, speakRateAttribute);
-					// slower next time
-					this.setAttribute("speakRate", speakRateAttribute * 0.6);
-					// append a speaker symbol
+			function toggleListener(e) {
+				this.classList.remove("pulse");
+				answerDiv.classList.toggle("zeroOpacity");
+				nextButton.classList.add("pulse");
+				if (!answerDiv.classList.contains("zeroOpacity")) {
 					const result = resultsDiv.lastElementChild;
-					result.innerHTML = "🔊" + result.innerHTML;
+					const stronger = document.createElement("strong");
+					stronger.appendChild(result.cloneNode(true));
+					result.replaceWith(stronger);
+				}
+			}
 
-					function speakText(text, rate) {
-						const u = new SpeechSynthesisUtterance();
-						u.lang = "en-US";
-						u.text = text;
-						u.rate = rate;
-						u.onstart = pauseEmoji;
-						u.onpause = startEmoji;
-						u.onresume = pauseEmoji;
-						u.onend = startEmoji;
-						synthesis.cancel(); // no need for pending
-						synthesis.speak(u);
-
-						function pauseEmoji() {
-							speakButton.innerText = "🔇";
-						}
-						function startEmoji() {
-							speakButton.innerText = "🔊";
-						}
+			function speakListener(e) {
+				if (synthesis.speaking) {
+					if (synthesis.paused) {
+						synthesis.resume();
+					} else {
+						synthesis.pause();
 					}
+					return;
 				}
 
-				function toggleListener(e) {
-					this.classList.remove("pulse");
-					const answerDiv = document.getElementById("answerDiv");
-					answerDiv.classList.toggle("collapse");
-					nextButton.classList.add("pulse");
-					if (!answerDiv.classList.contains("collapse")) {
-						const result = resultsDiv.lastElementChild;
-						const stronger = document.createElement("strong");
-						stronger.appendChild(result.cloneNode(true));
-						result.replaceWith(stronger);
-					}
-				}
+				// this is a button
+				const speakRate = parseFloat(this.speakRate) || 1.0;
+				speakText(this.text, speakRate);
+				// slower next time
+				this.speakRate = speakRate * 0.6;
+				// prepend a speaker symbol
+				const result = resultsDiv.lastElementChild;
+				result.innerHTML = "🔊" + result.innerHTML;
+			}
+			function speakText(text, rate) {
+				const u = new SpeechSynthesisUtterance();
+				u.lang = "en-US";
+				u.text = text;
+				u.rate = rate;
+				u.onstart = pauseEmoji;
+				u.onpause = startEmoji;
+				u.onresume = pauseEmoji;
+				u.onend = startEmoji;
+				synthesis.cancel(); // no need for pending
+				synthesis.speak(u);
+			}
+			function pauseEmoji() {
+				speakButton.innerText = "🔇";
+			}
+			function startEmoji() {
+				speakButton.innerText = "🔊";
 			}
 		</script>
 	</body>
