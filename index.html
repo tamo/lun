@@ -130,7 +130,6 @@
 
 			toggleButton.addEventListener("click", toggleListener);
 			speakButton.addEventListener("click", speakListener);
-			nextButton.addEventListener("click", nextListener);
 			stopButton.addEventListener("click", function (e) {
 				while (quizPairs.pop()); // empty
 				nextListener(); // result
@@ -207,6 +206,9 @@
 				// quizPairs.length will decrease later
 				progressMax = quizPairs.length;
 
+				// retryListener could be here if another tab is clicked on results
+				nextButton.removeEventListener("click", retryListener);
+				nextButton.addEventListener("click", nextListener);
 				// start!
 				nextListener();
 			}
@@ -251,11 +253,12 @@
 					quizDiv.style.display = "none";
 					resultsDiv.style.display = "block";
 					nextButton.removeEventListener("click", nextListener);
-					nextButton.addEventListener("click", function () {
-						window.location.reload(); // no need to removeEventListener
-					});
+					nextButton.addEventListener("click", retryListener);
 					stopButton.style.display = "none";
 				}
+			}
+			function retryListener(e) {
+				window.location.reload();
 			}
 
 			function toggleListener(e) {
