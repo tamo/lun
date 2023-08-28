@@ -10,37 +10,64 @@ What were you doing, Kumi? I was drinking chocolate.|何してたの、クミ？
 Manabu and I are working on a project about the history of chocolate for an English class.|マナブと私は英語の授業のためにチョコレートの歴史についてのプロジェクトに取り組んでいます。
 
 The Aztecs used cacao beans to pay taxes.|アステカ人は税(複数の種類)を払うためにカカオ豆を使っていた。
-スペインの人々はチョコレートのことを健康食品だと思っていた。|People in Spain thought of chocolate as a health food.
-固体の|solid
+People in Spain thought of chocolate as a health food.|スペインの人々はチョコレートのことを健康食品だと思っていた。
+solid|固体の
 I wanted to dring a glass of water.|私は水を一杯飲みたかった。
 
-彼は自分を偉大な野球選手だと思っている。|He thinks of himself as a great baseball player.
+We have to work on the new project next week.|私たちは来週、新しいプロジェクトに取り組まなければならない。
+He thinks of himself as a great baseball player.|彼は自分を偉大な野球選手だと思っている。
 Don't forget to send me your comments by tomorrow.|明日までに忘れずにコメントを送ってください。
 
-Excuse me.|すみません。
-Is this the main entrance to the school building?|こちらは校舎の正面玄関ですか。
-Are you new to this school?|あなたはこの学校の新入生ですか。
-May I ask you a question? - Of course.|あなたに質問をしていいですか。もちろんです。
-Why do Japanese people bow like that?|なぜ、日本の人々は、そんなふうにおじぎをするんですか。
-It's like saying hello.|それは「こんにちは」とあいさつをするようなものです。
-
-I'm an exchange student from the US.|私はアメリカ合衆国からの交換留学生です。
-I'm going to study with you for a year.|私はこれから1年間、あなたたちと一緒に勉強する予定です。
-I like taking pictures.|私は写真を撮ることが好きです。
-These days, I often take pictures of the beautiful scenery in Japan.|最近、私は日本の美しい景色の写真をよく撮っています。
-I send them to my family every weekend.|私は週末になると、それらを家族に送っています。
-I'm really looking forward to studying with you.|私はあなたたちと一緒に勉強するのを、本当に楽しみにしています。
-
-What was your favorite subject in junior high school?|中学校であなたの好きな教科は何だったの？
-I was in the science club.|僕は科学部に入っていたんだ。
-Someday I want to travel to Mars!|いつか、僕は火星に旅行したいんだ！
-I'm interested in marine sciences.|私は海洋科学に興味があるんだ。
-I want to protect the animals in the ocean.|私は海の生物を守りたいんだ。
-
-Our school has a competitive karuta club.|私たちの学校には、競技かるた部があります。
-Competitive karuta is a card game with 100 cards called Hyakunin Isshu karuta.|競技かるたは、百人一首かるたと呼ばれる100枚の札を使ったカードゲームです。
-They have old Japanese poems on them.|それらの札には、古い日本の詩歌が書いてあります。
-In the picture, the teacher is reading the poem on a card.|写真では、先生が札に書かれた詩歌を読んでいます。
-The boy is looking for the matching card.|男子がそれに合う札を探しています。
-Competitive karuta became famous because of the manga Chihayafuru.|競技かるたは、漫画の『ちはやふる』によって有名になりました。
-If you are interested in their activity, please watch their practice sometime.|もし、彼らの活動に興味があれば、いつか彼らの練習を見にいってください。
+Wait a moment, please.|少しの間お待ちください。
+the spring term|春学期
+technical terms|専門用語
+My dorm is good <em>in terms of</em> size, but too far from my school.|私の寮は広さ『の点では』いいのだが、学校から遠すぎる。
+fill a gap|ギャップを埋める
+Her eyes were filled with tears.|彼女の目は涙でいっぱいだった。
+a lack of information|情報の不足
+a couple of examples|いくつか(2, 3程度)の例
+a pair of shoes|靴1足
+The two countries have maintained friendly relations.|その2か国は友好的な関係を保っている。
+preserve the environment|環境を保護する
+a practice game|練習試合
+a medical experiment|医療実験
+The lake was beautiful in the <em>bright</em> sunshine.|『まぶしい』日の光が降りそそぐ中、湖は美しかった。
+shine brightly|明るく輝く
+mixed emotions|複雑な感情
+<em>treat</em> her with respect|尊敬の念をもって彼女『に接する』
+for certain|確かに
+I have certain evidence.|私には確かな証拠がある。
+Certainly not.|もちろんだめです。
+She lacked confidence at that time.|当時、彼女は自分に自信がなかった。
+hear footsteps approaching|足音が近づいてくるのを聞く
+I got in touch with Haruka by e-mail.|私はEメールでハルカと連絡を取った。
+a rough road|でこぼこ道
+a dense coutry|人口密度が高い国
+serve coffee|コーヒーを出す
+national commission|国家的任務
+human behavior|人間の行動
+I don't know how to <em>behave</em> at a formal dinner.|正式なディナーでどう『ふるまう』といいのか分からない。
+<em>conduct</em> an experiment|実験を『行う』
+pretend illness|病気のふりをする
+The girl pretended to cry.|その女の子は泣きまねをした。
+I couldn't agree more.|全くの同感です。
+I agree with you.|私はあなたに賛成です。
+We object to the construction. (We oppose building it. 等も可)|我々はその建設に反対している。
+It depends.|場合によります。
+It all depends on the weather.|すべては天候しだいだ。
+You can always depend on me.|いつでも私に頼ってね。
+hide the truth|真実を隠す
+We came here to seek jobs.|私たちは職を探しにここにやって来た。
+She discovered a new comet.|彼女は新しい彗星を発見した。
+The Japanese government promotes the program.|日本政府はその計画を推進している。
+political rights|参政権
+a foreign policy|外交政策
+He will become the Prime Minister.|彼は総理大臣になるだろう。
+apply for a visa|ビザを申請する
+It's difficult to define love.|藍を定義することは難しい。
+refer to the need for A|Aの必要性に言及する
+Please refer to the catalog for details.|詳細はカタログをご参照ください。
+as I mentioned earlier|先ほど申し上げましたように
+Don't mention it.|(礼などに対して)どういたしまして。
+She speaks German and Dutch, not to mention English.|彼女は英語は言うまでもなく、ドイツ語とオランダ語も話す。
+He is fast asleep.|彼はぐっすりと眠っている。
