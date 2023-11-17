@@ -1,0 +1,420 @@
+コーパス3000 STAGE7
+
+present|出席して、参列して
+at present|現在は、今のところは
+absent|不在で、欠席して
+attend|出席する、（学校などに）通う
+piece|１つ、１個
+block|塊、ブロック
+glass|ガラス
+board|板
+image|イメージ、像、記号
+throught|考え
+aim|目的、目標にする
+miss|はずす
+intend|つもりである
+attempt|試みる
+foreign|外国の
+domestic|国内の、家庭の
+abroad|外国に
+overseas|海外に、海外からの
+personality|性格、個性
+friendly|好意的な、友好的な
+honest|正直な、率直な
+curious|好奇心の強い
+ambitious|野心を持った
+limit|限界、制限
+measure|はかる、判断する、対策、基準
+invite|招待する
+introduce|紹介する
+advice|助言、アドバイス
+interview|インタビュー
+gesture|身振り、ジェスチャー
+substance|物質
+mass|（形を持たない）塊、多数の
+material|材料、原料
+sheet|一枚、シーツ
+free|自由な、無料の
+release|解放する、封切る
+impose|課す、負わせる
+obligation|義務
+main|主な、最も重要な(m)
+significant|重要な(s)
+primary|主な、重要な、初期の(p)
+principal|主な、最も重要な(p)
+emphasize|強調する
+struggle|一生懸命に努力する
+settle|解決する、定住する
+be settled by ...|...によって移住される
+settle down|腰を落ち着けて取り組む､落ち着く
+advantage|利点、有利な点
+take advantage of|利用する
+benefit|利益、恩恵
+profit|利益、もうけ
+extent|程度、広がり
+to some extent|ある程度までは
+medium|中間の
+scale|規模、スケール、はかり
+fully|完全に、十分に
+absolutely|絶対に、完全に
+destroy|破壊する
+shoot|撃つ
+damage|被害、損害、傷つける
+clever|利口な(c)
+smart|利口な(s)
+wise|賢い
+wisdom|知恵
+intellectual|知性の、知的な
+intelligent|知能が高い
+intelligence|知能
+escape|逃げる、脱出する
+hunt|狩り、狩猟
+observe|観察する、気づく
+sight|視力(s)
+in sight|見える範囲に
+out of sight|目の届かない範囲に
+vision|視力(v)
+clean|綺麗な、清潔な
+dirty|汚い、汚れた
+wash|洗う
+bath|入浴
+mistake|誤り、ミス、誤解する
+by mistake|間違って
+error|誤り(e)
+excuse|言い訳
+heat|熱
+electricity|電気
+burn|燃える、燃やす
+melt|溶ける
+boil|茹でる
+nuclear|原子力の、核の
+rest|休み
+holiday|休日、祝日
+vacation|休暇
+leisure|余暇、自由な時間
+corner|角、曲がり角
+guide|案内人、ツアーガイド
+balance|バランス
+background|背景、経歴
+machine|機械
+engine|エンジン
+engineer|エンジニア
+screen|画面、スクリーン
+alarm|警報機、目覚まし時計
+electronic|電子の
+inside|内側に
+inside out|裏返しに
+inner|内側の
+internal|国内の、内部の
+content|中身、内容
+straight|真っ直ぐな
+ahead|前へ、前もって
+go ahead|どうぞ
+reflect|反射する
+deep|深い
+sink|沈む、沈没する
+hole|穴、くぼみ
+metal|金属
+rock|岩石
+soil|土、土壌
+official|公式の、公認された
+citizen|住民、国民
+neighbor|近所の、隣人
+gender|性差、性別
+cash|現金
+tax|税金
+income|収入、所得
+wage|給料
+property|所有物、財産
+wealth|財産(w)
+porverty|貧困
+push|押す
+pull|引く
+pull in|駐車させる
+pull out|道路に出る、（駅から）発車する
+press|押す、記者
+injure|に怪我をさせる
+recover|回復する
+virus|ウイルス
+epidemic|伝染病
+organ|臓器、器官
+therapy|治療
+strange|奇妙な
+unusual|（状況・状態などが）異常な
+rare|まれな、珍しい
+.extraordinary|（驚くほど）異常な
+insist|主張する
+persuade|説得する
+apologize|謝る、謝罪する
+quote|引用する
+spread|広げる(s)
+extend|広げる、広がる、延長する
+strech|伸ばす、ストレッチする
+remove|取り除く
+eliminate|除去する(e)
+peace|平和
+compromise|和解、示談
+stable|安定した
+adopt|採用する
+permit|許可する
+decline|断る、低下する
+hero|英雄、ヒーロー
+honor|名誉、光栄
+proud|誇りに思っている
+shame|恥ずかしさ
+prefer|の方を好む
+favorite|一番好きな、お気に入りの
+hate|酷く嫌う、憎む
+dislike|を嫌う
+former|前者の
+final|最終的な、最後の
+publish|出版する
+adbertise|広告する、宣伝する
+scene|場面、シーン
+law|法律
+crime|罪、犯罪
+judge|裁判官、審査員、判断する
+steal|盗む
+legal|法律の、合法的な
+guilty|有罪の
+superior|優れている
+convenient|好都合な、便利な
+suitable|適した、ふさわしい
+
+
+出席して、参列して|present
+現在は、今のところは|at present
+不在で、欠席して|absent
+出席する、（学校などに）通う|attend
+１つ、１個|piece
+塊、ブロック|block
+ガラス|glass
+板|board
+イメージ、像、記号|image
+考え|throught
+目的、目標にする|aim
+はずす|miss
+つもりである|intend
+試みる|attempt
+外国の|foreign
+国内の、家庭の|domestic
+外国に|abroad
+海外に、海外からの|overseas
+性格、個性|personality
+好意的な、友好的な|friendly
+正直な、率直な|honest
+好奇心の強い|curious
+野心を持った|ambitious
+限界、制限|limit
+はかる、判断する、対策、基準|measure
+招待する|invite
+紹介する|introduce
+助言、アドバイス|advice
+インタビュー|interview
+身振り、ジェスチャー|gesture
+物質|substance
+（形を持たない）塊、多数の|mass
+材料、原料|material
+一枚、シーツ|sheet
+自由な、無料の|free
+解放する、封切る|release
+課す、負わせる|impose
+義務|obligation
+主な、最も重要な(m)|main
+重要な(s)|significant
+主な、重要な、初期の(p)|primary
+主な、最も重要な(p)|principal
+強調する|emphasize
+一生懸命に努力する|struggle
+解決する、定住する|settle
+...によって移住される|be settled by ...
+腰を落ち着けて取り組む､落ち着く|settle down
+利点、有利な点|advantage
+利用する|take advantage of
+利益、恩恵|benefit
+利益、もうけ|profit
+程度、広がり|extent
+ある程度までは|to some extent
+中間の|medium
+規模、スケール、はかり|scale
+完全に、十分に|fully
+絶対に、完全に|absolutely
+破壊する|destroy
+撃つ|shoot
+被害、損害、傷つける|damage
+利口な(c)|clever
+利口な(s)|smart
+賢い|wise
+知恵|wisdom
+知性の、知的な|intellectual
+知能が高い|intelligent
+知能|intelligence
+逃げる、脱出する|escape
+狩り、狩猟|hunt
+観察する、気づく|observe
+視力(s)|sight
+見える範囲に|in sight
+目の届かない範囲に|out of sight
+視力(v)|vision
+綺麗な、清潔な|clean
+汚い、汚れた|dirty
+洗う|wash
+入浴|bath
+誤り、ミス、誤解する|mistake
+間違って|by mistake
+誤り(e)|error
+言い訳|excuse
+熱|heat
+電気|electricity
+燃える、燃やす|burn
+溶ける|melt
+茹でる|boil
+原子力の、核の|nuclear
+休み|rest
+休日、祝日|holiday
+休暇|vacation
+余暇、自由な時間|leisure
+角、曲がり角|corner
+案内人、ツアーガイド|guide
+バランス|balance
+背景、経歴|background
+機械|machine
+エンジン|engine
+エンジニア|engineer
+画面、スクリーン|screen
+警報機、目覚まし時計|alarm
+電子の|electronic
+内側に|inside
+裏返しに|inside out
+内側の|inner
+国内の、内部の|internal
+中身、内容|content
+真っ直ぐな|straight
+前へ、前もって|ahead
+どうぞ|go ahead
+反射する|reflect
+深い|deep
+沈む、沈没する|sink
+穴、くぼみ|hole
+金属|metal
+岩石|rock
+土、土壌|soil
+公式の、公認された|official
+住民、国民|citizen
+近所の、隣人|neighbor
+性差、性別|gender
+現金|cash
+税金|tax
+収入、所得|income
+給料|wage
+所有物、財産|property
+財産(w)|wealth
+貧困|porverty
+押す|push
+引く|pull
+駐車させる|pull in
+道路に出る、（駅から）発車する|pull out
+押す、記者|press
+に怪我をさせる|injure
+回復する|recover
+ウイルス|virus
+伝染病|epidemic
+臓器、器官|organ
+治療|therapy
+奇妙な|strange
+（状況・状態などが）異常な|unusual
+まれな、珍しい|rare
+（驚くほど）異常な|.extraordinary
+主張する|insist
+説得する|persuade
+謝る、謝罪する|apologize
+引用する|quote
+広げる(s)|spread
+広げる、広がる、延長する|extend
+伸ばす、ストレッチする|strech
+取り除く|remove
+除去する(e)|eliminate
+平和|peace
+和解、示談|compromise
+安定した|stable
+採用する|adopt
+許可する|permit
+断る、低下する|decline
+英雄、ヒーロー|hero
+名誉、光栄|honor
+誇りに思っている|proud
+恥ずかしさ|shame
+の方を好む|prefer
+一番好きな、お気に入りの|favorite
+酷く嫌う、憎む|hate
+を嫌う|dislike
+前者の|former
+最終的な、最後の|final
+出版する|publish
+広告する、宣伝する|adbertise
+場面、シーン|scene
+法律|law
+罪、犯罪|crime
+裁判官、審査員、判断する|judge
+盗む|steal
+法律の、合法的な|legal
+有罪の|guilty
+優れている|superior
+好都合な、便利な|convenient
+適した、ふさわしい|suitable
+
+
+
+リスニングプラットフォーム 6-10
+
+I'm sorry, I didn't make them.|ごめん、それ(複数のアップルパイ)作ってこなかった。
+They were really delicious.|それらは本当においしかった。
+That would be fun.|それは(やるとしたら)楽しいだろうけどね。
+
+Yeah, those are roses.|そうさ、あれらはバラだよ。
+Yeah, I've heard about them.|うん、それらについて聞いたことがあるよ。
+
+Why don't we go to the post office and then the cafe?|郵便局のあとカフェに行こうか。
+The post office is close to the cafe.|郵便局はカフェに近い。
+The post office is far away.|郵便局は遠い。
+
+
+There are four steps in cooking rice.|米の調理には4つの手順がある。
+First, measure the rice.|まず米を計量しろ。
+Second, wash the rice several times with water.|二番目に、米を水で何度か洗え。
+After that, put the rice in a rice cooker.|その後、米を炊飯器に入れろ。
+
+To get to the station, go straight and turn right at the bank.|駅に着くには、まっすぐ行って銀行で右に曲がれ。
+After that, keep walking and turn left at the supermarket.|その後、歩き続けてスーパーで左に曲がれ。
+After that, you'll see the station in front of you.|その後、目の前に駅が見えるだろう。
+
+
+Shall we have lunch together?|昼食いっしょにしませんか。
+What shall we eat?|何を(一緒に)食べましょうか。
+How about Italian food?|イタリア料理はどうですか。
+
+What kind of music do you like?|どんな種類の音楽が好き？
+I don't know anything about K-pop.|私はK-popについて何も知らない。
+I'd like to hear some K-pop music.|何らかのK-pop音楽を耳に入れたい。
+
+I want to take lessons from a good teacher.|いい先生からレッスンを受けたい。
+Maybe later.|また今度かな。
+
+
+The lessons start on July 12.|レッスンは7月12日に始まる。
+Then we'll have a small tea ceremony on July 21.|それから7月21日に小さな茶会がある。
+I'll invite my family and friends to that ceremony.|家族と友人をそのセレモニーに呼ぶつもりだ。
+
+I want to change the date from Friday, February 16 to Wednesday, February 14.|その日付を2月16日(金)から2月14日(水)に変えたい。
+Please call me by February 7.|2月7日までに電話ください。
+
+Andy's 16th birthday is coming up next week on August 10.|アンディの16回目の誕生日が来週8月10日に来ようとしている。
+It's on a Monday this year.|それは今年は月曜にある。
+So we decided to have his birthday party two days before his birthday, on Saturday.|だから私たちは彼の誕生日パーティを誕生日の2日前の土曜日にやることにした。
+This way many of his friends will be able to come.|こうすれば彼の友達がたくさん来ることができるだろう。
+
+
+I'll make a salad quickly.|サッとサラダ作るね。
+
+Can I help you with the housework?|家事を手伝っていい？
+Could you go shopping for me?|私の代わりに買い物に行ってくれませんか。
