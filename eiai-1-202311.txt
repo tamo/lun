@@ -9,7 +9,7 @@ block|塊、ブロック
 glass|ガラス
 board|板
 image|イメージ、像、記号
-throught|考え
+thought|考え
 aim|目的、目標にする
 miss|はずす
 intend|つもりである
@@ -127,7 +127,7 @@ income|収入、所得
 wage|給料
 property|所有物、財産
 wealth|財産(w)
-porverty|貧困
+poverty|貧困
 push|押す
 pull|引く
 pull in|駐車させる
@@ -142,7 +142,7 @@ therapy|治療
 strange|奇妙な
 unusual|（状況・状態などが）異常な
 rare|まれな、珍しい
-.extraordinary|（驚くほど）異常な
+extraordinary|（驚くほど）異常な
 insist|主張する
 persuade|説得する
 apologize|謝る、謝罪する
@@ -169,7 +169,7 @@ dislike|を嫌う
 former|前者の
 final|最終的な、最後の
 publish|出版する
-adbertise|広告する、宣伝する
+advertise|広告する、宣伝する
 scene|場面、シーン
 law|法律
 crime|罪、犯罪
@@ -188,10 +188,9 @@ suitable|適した、ふさわしい
 出席する、（学校などに）通う|attend
 １つ、１個|piece
 塊、ブロック|block
-ガラス|glass
 板|board
 イメージ、像、記号|image
-考え|throught
+考え|thought
 目的、目標にする|aim
 はずす|miss
 つもりである|intend
@@ -209,8 +208,6 @@ suitable|適した、ふさわしい
 はかる、判断する、対策、基準|measure
 招待する|invite
 紹介する|introduce
-助言、アドバイス|advice
-インタビュー|interview
 身振り、ジェスチャー|gesture
 物質|substance
 （形を持たない）塊、多数の|mass
@@ -276,12 +273,9 @@ suitable|適した、ふさわしい
 余暇、自由な時間|leisure
 角、曲がり角|corner
 案内人、ツアーガイド|guide
-バランス|balance
 背景、経歴|background
 機械|machine
 エンジン|engine
-エンジニア|engineer
-画面、スクリーン|screen
 警報機、目覚まし時計|alarm
 電子の|electronic
 内側に|inside
@@ -309,7 +303,7 @@ suitable|適した、ふさわしい
 給料|wage
 所有物、財産|property
 財産(w)|wealth
-貧困|porverty
+貧困|poverty
 押す|push
 引く|pull
 駐車させる|pull in
@@ -324,7 +318,7 @@ suitable|適した、ふさわしい
 奇妙な|strange
 （状況・状態などが）異常な|unusual
 まれな、珍しい|rare
-（驚くほど）異常な|.extraordinary
+（驚くほど）異常な|extraordinary
 主張する|insist
 説得する|persuade
 謝る、謝罪する|apologize
@@ -351,7 +345,7 @@ suitable|適した、ふさわしい
 前者の|former
 最終的な、最後の|final
 出版する|publish
-広告する、宣伝する|adbertise
+広告する、宣伝する|advertise
 場面、シーン|scene
 法律|law
 罪、犯罪|crime
