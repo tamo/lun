@@ -5,10 +5,7 @@ at present|現在は、今のところは
 absent|不在で、欠席して
 attend|出席する、（学校などに）通う
 piece|１つ、１個
-block|塊、ブロック
-glass|ガラス
 board|板
-image|イメージ、像、記号
 thought|考え
 aim|目的、目標にする
 miss|はずす
@@ -27,13 +24,9 @@ limit|限界、制限
 measure|はかる、判断する、対策、基準
 invite|招待する
 introduce|紹介する
-advice|助言、アドバイス
-interview|インタビュー
-gesture|身振り、ジェスチャー
 substance|物質
 mass|（形を持たない）塊、多数の
 material|材料、原料
-sheet|一枚、シーツ
 free|自由な、無料の
 release|解放する、封切る
 impose|課す、負わせる
@@ -97,9 +90,6 @@ guide|案内人、ツアーガイド
 balance|バランス
 background|背景、経歴
 machine|機械
-engine|エンジン
-engineer|エンジニア
-screen|画面、スクリーン
 alarm|警報機、目覚まし時計
 electronic|電子の
 inside|内側に
@@ -412,3 +402,15 @@ I'll make a salad quickly.|サッとサラダ作るね。
 
 Can I help you with the housework?|家事を手伝っていい？
 Could you go shopping for me?|私の代わりに買い物に行ってくれませんか。
+
+
+教科書
+
+What is this for?|これは何のためのものですか。
+He faced many hardships as well.|彼は数々の逆境にも直面した。
+He even injured his ankle shortly before the 2018 Olympics.|彼は2018年オリンピックの直前に足首を傷めさえした。
+Ten days later, he started skating again with the help of people around him.|十日後に彼は周りの人達の助力で再びスケートをし始めた。
+Since then, he has thought.|そのとき以来、彼は考えている。
+I'm here because many people around the world have supported me.|世界中の大勢の人が支えてくれているので私はここにいます。
+I'd like to ask you about your friendship.|あなたの友情についてお尋ねしたいのですが。
+He means a lot to me.|彼は私にとって大切な存在です。(大きな意味があります)
