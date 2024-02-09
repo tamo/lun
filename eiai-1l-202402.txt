@@ -1,3 +1,4 @@
+
 Are you ready to order?|ご注文はお決まりですか
 Actually, I haven't decided yet.|実は、まだ決まっていないんです
 Do you have any vegetarian dishes?|何かベジタリアン向け料理はありますか
@@ -5,7 +6,19 @@ There are carrot marks next to them on the menu.|メニューには、それら�
 That's helpful.|それは助かります
 I was looking for a restaurant with vegetarian food.|ベジタリアン向け料理のあるレストランを探していたんです
 Do you have any recommendations?|何かおすすめはありますか
+Have you ever eaten steak?|これまでにステーキを食べたことがありますか
 I'd like to try it.|それを試してみたいです
+seasonal specials|季節の料理
+local specialties|郷土料理
+meat dishes|肉料理
+salad (dishes)|サラダ
+Could you give us a few more minutes, please?|もう少し時間をいただけますか
+I have already called him.|私はもう彼に電話をしました(してあります)
+The plane has already landed at the airport.|その飛行機はもう空港に着陸している
+We have never had lunch at this restaurant (before).|私たちはこれまでこのレストランで昼食をとったことが一度もありません
+The family has moved to a new house.|その家族は新居へ引っ越した(ので今はそこに住んでいる)
+The barber has just cut his hair short.|床屋さんがちょうど彼の髪を短く切ってくれたところです
+He hasn't answered my question yet.|彼はまだ私の質問に答えていません
 
 Japan is good at combining things from different cultures into new products.|日本は、異なる文化から来たものを組み合わせて新しい製品をつくるのが得意です
 Take yakisoba pan, for example.|たとえば焼きそばパンを例にとりましょう
@@ -13,6 +26,17 @@ It has been a common dish in Japan for many years.|それは長年の間日本�
 It actually came from foreign foods.|それは実は外国の食べものに由来するのです
 Katsu, or pork cutlets, is originally from France.|カツ (英語で言うポーク・カツレツ) は、もともとはフランスで生まれました
 Japan has been creating many things like this throughout its history.|日本は、その歴史を通じて、このようにたくさんのものをつくってきたのです
+fried rice|炒飯
+sandwiches|サンドイッチ
+burgers|ハンバーガー
+bread|パン
+fried noodles|焼きそば
+My mother and Ms. Black have been friends since they graduated from college.|母とブラックさん(女性)は大学卒業以来の友人です
+Chris has been talking on the phone for an hour.|クリスは1時間ずっと電話で話し(続け)ている
+Mr. Adams has lived in Japan since 2013.|アダムズさん(男性)は2013年から日本に住んでいます
+My father hasn't been well since this morning.|父は今朝から調子がよくありません
+I have wanted that bag for a long time.|私はそのバッグを長い間ほしいと思っていました
+最近|lately
 
 May I help you?|お困りですか
 I heard there's a big statue of Buddha near here.|この近くに大きな仏像があると聞いたのですが
@@ -23,3 +47,13 @@ Why is it outside?|それはどうして屋外にあるのですか
 It used to be in a building.|それはかつては建物の中にあったのです
 A natural disaster destroyed the building centuries ago.|何世紀も前に自然災害がその建物を壊しました
 Can you please tell me more about the history?|その歴史についてもっと教えてくださいませんか
+turn left at the traffic light|信号で左に曲がってください
+walk for two blocks|2区画歩いてください
+turn right at the corner|かどで右に曲がってください
+It is on your right.|それは右側にあります
+Our flight will leave at 5 p.m., so we should be at the airport by 3 p.m.|ぼくたちの便は午後5時発予定だから、午後3時までには空港にいるべきだ
+It may snow tonight because it is very cold.|とても寒いから今晩は雪が降るかもしれない
+Billy must be tired.|ビリーは疲れているに違いない
+He doesn't have to finish the job.|彼はその仕事を今日終える必要はありません
+You should take your umbrella with you.|あなたは傘を持っていくべきです
+Your idea can be right.|あなたの考えは正しいかもしれません
