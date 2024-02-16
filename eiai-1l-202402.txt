@@ -26,6 +26,7 @@ It has been a common dish in Japan for many years.|それは長年の間日本�
 It actually came from foreign foods.|それは実は外国の食べものに由来するのです
 Katsu, or pork cutlets, is originally from France.|カツ (英語で言うポーク・カツレツ) は、もともとはフランスで生まれました
 Japan has been creating many things like this throughout its history.|日本は、その歴史を通じて、このようにたくさんのものをつくってきたのです
+Pan, or bread, is originally from the Middle East.|パン (英語で言うブレッド) は、もともとは中東で生まれました
 fried rice|炒飯
 sandwiches|サンドイッチ
 burgers|ハンバーガー
@@ -37,6 +38,12 @@ Mr. Adams has lived in Japan since 2013.|アダムズさん(男性)は2013年か
 My father hasn't been well since this morning.|父は今朝から調子がよくありません
 I have wanted that bag for a long time.|私はそのバッグを長い間ほしいと思っていました
 最近|lately
+
+I'd like to explain how to make sunny-side up eggs.|目玉焼きの作り方をご説明したいと思います
+First, break some eggs into a heated pan.|まず、熱したフライパンにいくつかの卵を割り入れてください
+Finally, cover the pan and cook the eggs for two to three minutes.|最後にフライパンにフタをして卵を2～3分(加熱)調理してください
+Second, put an umeboshi in the rice and roll it into a ball.|二番目に、その米に梅干しを入れ、それを丸めてボールにしてください
+What other ingredients can you put into a sandwich?|他にどんな材料をサンドウィッチに入れられるでしょうか
 
 May I help you?|お困りですか
 I heard there's a big statue of Buddha near here.|この近くに大きな仏像があると聞いたのですが
@@ -57,3 +64,4 @@ Billy must be tired.|ビリーは疲れているに違いない
 He doesn't have to finish the job.|彼はその仕事を今日終える必要はありません
 You should take your umbrella with you.|あなたは傘を持っていくべきです
 Your idea can be right.|あなたの考えは正しいかもしれません
+My mother must be angry with me.|母は私のことで怒っているに違いない
